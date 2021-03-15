@@ -1,0 +1,213 @@
+body {
+	font-family: 'Balsamiq Sans', cursive;
+}
+
+.content {
+	padding: 0 7vw;
+}
+
+
+.title-block {
+	display: flex;
+	flex-direction: column;
+
+	margin: 0 0 7vw 0;
+	padding: 5vw 0 0 0;
+
+	color: #226694;
+
+	align-items: center;
+}
+
+.icon-img {
+	width: 17vw;
+	height: 17vw;
+	margin: 0 0 2vw 0;
+
+	background-image: url('../img/icon.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+
+.app-name {
+	font-size: 9vw;
+	font-weight: 700;
+
+	letter-spacing: .05em;
+}
+
+
+
+
+
+.card {
+	display: flex;
+	flex-direction: column;
+
+	margin: 0 0 7vw 0;
+	padding: 5vw 5vw;
+
+	border: .2vw solid rgba(0,0,0, .05);
+	border-radius: 4vw;
+	background: #fff;
+	box-shadow: 0 1.5vw 3vw rgba(0,0,0, .1);
+}
+
+
+
+
+
+.input-field {
+	font-size: 5vw;
+
+	position: relative;
+}
+.input-field:first-child {
+	margin: 0 0 3vw 0;
+}
+
+.input-field input,
+.input-field textarea {
+	font-size: 5vw;
+
+	width: 100%;
+	padding: 2.5vw 3vw;
+
+	transition: border-color .3s ease;
+
+	color: #333;
+	border: .2vw solid #ddd;
+	border-radius: 2.8vw;
+	background: none;
+
+	-webkit-appearance: none;
+	    -ms-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+}
+
+.input-field textarea {
+	height: 28vw;
+}
+
+.input-field .placeholder {
+	position: absolute;
+	top: 6vw;
+	left: 2vw;
+
+	padding: 0 1vw;
+
+	transition: all .3s ease;
+	transform: translateY(-50%);
+
+	color: #aaa;
+}
+
+.input-field input:valid + .placeholder,
+.input-field input:focus + .placeholder,
+.input-field textarea:valid + .placeholder,
+.input-field textarea:focus + .placeholder {
+	font-size: 3vw;
+
+	top: .1vw;
+
+	color: #333;
+	background: #fff;
+}
+
+.input-field input:valid,
+.input-field input:focus,
+.input-field textarea:valid,
+.input-field textarea:focus {
+	transition-delay: .1s;
+
+	border-color: #333;
+}
+
+
+
+.action-btn-block {
+	display: flex;
+
+	margin: 5vw 0 0 0;
+
+	justify-content: space-between;
+}
+
+.action-btn {
+	font-size: 5vw;
+
+	width: 36vw;
+	height: 12vw;
+
+	transition: transform .1s ease;
+
+	border-radius: 2.8vw;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto 85%;
+
+	-webkit-tap-highlight-color: transparent;
+}
+
+.action-btn:active {
+	transform: scale(1.1, 1.1);
+}
+
+.action-btn:first-child {
+	background-color: #d24a43;
+	background-image: url('../img/encrypt.svg');
+}
+
+.action-btn:last-child {
+	background-color: #52ac62;
+	background-image: url('../img/decrypt.svg');
+}
+
+
+
+
+
+.result {
+	font-size: 4.5vw;
+
+	text-align: justify;
+
+	color: #444;
+}
+
+
+
+
+
+
+
+
+
+
+
+.notification {
+	position: absolute;
+	bottom: -20vw;
+
+	display: flex;
+
+	width: 100vw;
+	height: 20vw;
+
+	transition: bottom .3s ease;
+
+	background: #470c75;
+
+	justify-content: center;
+	align-items: center;
+}
+
+.notification-text {
+	font-size: 7vw;
+
+	letter-spacing: .05em;
+
+	color: white;
+}
