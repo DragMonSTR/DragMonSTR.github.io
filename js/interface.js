@@ -22,7 +22,7 @@ function inputFieldsChanged () {
 		if (keyInputEl.value.length || messInputEl.value.length)
 			notificationEl.style.opacity = "0.3";
 		else
-			notificationEl.style.opacity = "0.6";
+			notificationEl.style.opacity = "0.5";
 	}
 
 	else if (notificationText == "Введите ключ") {
@@ -87,7 +87,7 @@ function changeNotificationType (type) {
 	if (type == "tip") {
 		notificationEl.style.background = "#470c75";
 		notificationEl.style.color = "#fff";
-		notificationEl.style.opacity = "0.6";
+		notificationEl.style.opacity = "0.5";
 	}
 	else if (type == "warning") {
 		notificationEl.style.background = "#7f113a";
