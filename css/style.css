@@ -29,14 +29,14 @@ body {
 	margin: 0 0 5vw 0;
 	padding: 2vw 0;
 
+	transition: opacity .2s ease;
 	text-align: center;
 	letter-spacing: .05em;
 
+	opacity: .6;
 	color: white;
 	border-radius: 4vw;
 	background: #470c75;
-	opacity: .2;
-	transition: opacity .2s ease;
 }
 
 
@@ -143,6 +143,7 @@ body {
 
 	transition: transform .1s ease;
 
+	opacity: .9;
 	border-radius: 2.8vw;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -150,7 +151,6 @@ body {
 
 	-webkit-tap-highlight-color: transparent;
 }
-
 .action-btn:active {
 	transform: scale(1.1, 1.1);
 }
@@ -165,6 +165,12 @@ body {
 	background-image: url('../img/decrypt.svg');
 }
 
+.action-btn-unavailable {
+	opacity: .5;
+}
+.action-btn-unavailable:active {
+	transform: none;
+}
 
 
 
@@ -172,7 +178,7 @@ body {
 .result {
 	font-size: 4.5vw;
 
-	text-align: justify;
+	word-wrap: break-word;
 
 	color: #444;
 }
