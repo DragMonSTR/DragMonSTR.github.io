@@ -20,6 +20,8 @@ const alphabet = [
 	' '
 ];
 
+const table = createTable(alphabet);
+
 
 function createTable (alphabet) {
 	let table = [];
@@ -78,21 +80,3 @@ function symbolPosition (symbol, array) {
 	for (let i in array)
 		if (array[i] == symbol) return i;
 }
-
-let table = createTable(alphabet);
-
-
-// program
-/*
-let table = createTable(alphabet);
-console.log(table);
-
-let key = 'москва';
-let mess = 'встретимсянапушкинскойввосемь';
-
-let messEncrypted = encrypt(mess, key, table);
-console.log(messEncrypted);
-
-let messDecrypted = decrypt(messEncrypted, key, table);
-console.log(messDecrypted);
-*/
