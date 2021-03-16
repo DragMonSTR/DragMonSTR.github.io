@@ -129,8 +129,10 @@ function showResult (result) {
 
 	let tmpEl = document.createElement('textarea');
 	tmpEl.value = result;
+	document.getElementsByTagName('body')[0].append(tmpEl);
 	tmpEl.select();
 	document.execCommand('copy');
+	tmpEl.remove();
 
 	changeNotificationType("message");
 	notificationEl.innerHTML = "Скопировано";
