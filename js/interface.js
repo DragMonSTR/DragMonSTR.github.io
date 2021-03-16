@@ -127,15 +127,10 @@ function checkFieldsValidity (changeNotification = false) {
 function showResult (result) {
 	resultEl.innerHTML = result;
 
-
-	//navigator.clipboard.writeText(result);
-	if (navigator.clipboard) {
-		// поддержка имеется, включить соответствующую функцию проекта.
-		document.getElementsByTagName("body")[0].style.background = 'green';
-	} else {
-		// поддержки нет. Придётся пользоваться execCommand или не включать эту функцию.
-		document.getElementsByTagName("body")[0].style.background = 'red';
-	}
+	let tmpEl = document.createElement('textarea');
+	tmpEl.value = result;
+	tmpEl.select();
+	document.execCommand('copy');
 
 	changeNotificationType("message");
 	notificationEl.innerHTML = "Скопировано";
