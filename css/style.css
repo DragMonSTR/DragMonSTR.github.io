@@ -15,7 +15,7 @@ body {
 
 	width: 100%;
 	padding: 5vw 0 0 0;
-	margin: 0 0 5vw 0;
+	margin: 0 0 4vw 0;
 
 	text-align: center;
 	letter-spacing: .05em;
@@ -27,14 +27,15 @@ body {
 .notification {
 	font-size: 7vw;
 
-	margin: 0 0 5vw 0;
-	padding: 2vw 0;
+	margin: 0 0 4vw 0;
+	height: 14vw;
 
 	transition: opacity .2s ease;
 	text-align: center;
+	line-height: 14vw;
 	letter-spacing: .05em;
 
-	opacity: .6;
+	opacity: .5;
 	color: white;
 	border-radius: 4vw;
 	background: #470c75;
@@ -48,19 +49,19 @@ body {
 	flex-direction: column;
 
 	margin: 0 0 7vw 0;
-	padding: 5vw 5vw;
+	padding: 4vw 4vw;
 
-	border: .2vw solid rgba(0,0,0, .05);
+	border: .2vw solid rgba(0,0,0, .08);
 	border-radius: 4vw;
 	background: #fff;
-	box-shadow: 0 1.5vw 3vw rgba(0,0,0, .1);
+	box-shadow: 0 1.5vw 3vw rgba(0,0,0, .15);
 }
 
 
 
 
 .input-field {
-	font-size: 5vw;
+	font-size: 6vw;
 
 	position: relative;
 }
@@ -70,10 +71,10 @@ body {
 
 .input-field input,
 .input-field textarea {
-	font-size: 5vw;
+	font-size: 6vw;
 
 	width: 100%;
-	padding: 2.5vw 3vw;
+	padding: 3vw 3vw;
 
 	transition: border-color .3s ease;
 
@@ -94,7 +95,7 @@ body {
 
 .input-field .placeholder {
 	position: absolute;
-	top: 6vw;
+	top: 7.3vw;
 	left: 2vw;
 
 	padding: 0 1vw;
@@ -139,8 +140,8 @@ body {
 .action-btn {
 	font-size: 5vw;
 
-	width: 36vw;
-	height: 12vw;
+	width: 36.7vw;
+	height: 14vw;
 
 	transition: transform .1s ease;
 
@@ -148,7 +149,7 @@ body {
 	border-radius: 2.8vw;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: auto 85%;
+	background-size: auto 80%;
 
 	-webkit-tap-highlight-color: transparent;
 }
