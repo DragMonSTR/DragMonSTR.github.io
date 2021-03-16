@@ -1,5 +1,7 @@
 body {
 	font-family: 'Balsamiq Sans', cursive;
+
+	overflow: hidden;
 }
 
 .content {
@@ -7,36 +9,35 @@ body {
 }
 
 
-.title-block {
-	display: flex;
-	flex-direction: column;
-
-	margin: 0 0 7vw 0;
-	padding: 5vw 0 0 0;
-
-	color: #226694;
-
-	align-items: center;
-}
-
-.icon-img {
-	width: 17vw;
-	height: 17vw;
-	margin: 0 0 2vw 0;
-
-	background-image: url('../img/icon.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 100% 100%;
-}
-
 .app-name {
 	font-size: 9vw;
 	font-weight: 700;
 
+	width: 100%;
+	margin: 5vw 0 5vw 0;
+
+	text-align: center;
 	letter-spacing: .05em;
+
+	color: #226694;
 }
 
+
+.notification {
+	font-size: 7vw;
+
+	margin: 0 0 5vw 0;
+	padding: 2vw 0;
+
+	text-align: center;
+	letter-spacing: .05em;
+
+	color: white;
+	border-radius: 4vw;
+	background: #470c75;
+	opacity: .2;
+	transition: opacity .2s ease;
+}
 
 
 
@@ -53,7 +54,6 @@ body {
 	background: #fff;
 	box-shadow: 0 1.5vw 3vw rgba(0,0,0, .1);
 }
-
 
 
 
@@ -175,39 +175,4 @@ body {
 	text-align: justify;
 
 	color: #444;
-}
-
-
-
-
-
-
-
-
-
-
-
-.notification {
-	position: absolute;
-	bottom: -20vw;
-
-	display: flex;
-
-	width: 100vw;
-	height: 20vw;
-
-	transition: bottom .3s ease;
-
-	background: #470c75;
-
-	justify-content: center;
-	align-items: center;
-}
-
-.notification-text {
-	font-size: 7vw;
-
-	letter-spacing: .05em;
-
-	color: white;
 }
