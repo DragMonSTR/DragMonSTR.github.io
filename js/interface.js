@@ -126,7 +126,16 @@ function checkFieldsValidity (changeNotification = false) {
 
 function showResult (result) {
 	resultEl.innerHTML = result;
-	navigator.clipboard.writeText(result);
+
+
+	//navigator.clipboard.writeText(result);
+	if (navigator.clipboard) {
+		// поддержка имеется, включить соответствующую функцию проекта.
+		document.getElementsByTagName("body")[0].style.background = 'green';
+	} else {
+		// поддержки нет. Придётся пользоваться execCommand или не включать эту функцию.
+		document.getElementsByTagName("body")[0].style.background = 'red';
+	}
 
 	changeNotificationType("message");
 	notificationEl.innerHTML = "Скопировано";
