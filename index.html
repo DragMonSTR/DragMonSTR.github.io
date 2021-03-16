@@ -12,24 +12,24 @@
 </head>
 	<body>
 		<div class="content">
-			<p class="app-name">ифратор</p>
+			<p class="app-name">Шифратор</p>
 
 			<p class="notification">Как пользоваться?</p>
 			
 			<div class="card">
 				<label class="input-field">
-					<input type="text" required>
+					<input id="key-input" type="text" required>
 					<span class="placeholder">Ключ</span>
 				</label>
 
 				<label class="input-field">
-					<textarea cols="30" rows="10" required></textarea>
+					<textarea id="mess-input" cols="30" rows="10" required></textarea>
 					<span class="placeholder">Сообщение</span>
 				</label>
 
 				<div class="action-btn-block">
-					<button class="action-btn"></button>
-					<button class="action-btn"></button>
+					<button class="action-btn action-btn-unavailable"></button>
+					<button class="action-btn action-btn-unavailable"></button>
 				</div>
 			</div>
 
@@ -37,5 +37,6 @@
 		</div>
 	</body>
 
+	<script src="js/interface.js"></script>
 	<script src="js/index.js"></script>
 </html>
