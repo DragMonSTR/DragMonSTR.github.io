@@ -22,11 +22,17 @@ keyInputEl.addEventListener("blur", inputFieldsOnblur, false);
 messInputEl.addEventListener("blur", inputFieldsOnblur, false);
 
 function inputFieldsOnfocus () {
-	appNameEl.style.marginTop = "-15vw";
+	setTimeout(
+		() => appNameEl.style.marginTop = "-15vw",
+		0
+	);
 }
 
 function inputFieldsOnblur () {
-	appNameEl.style.marginTop = "0";
+	setTimeout(
+		() => appNameEl.style.marginTop = "0",
+		0
+	);
 }
 
 
