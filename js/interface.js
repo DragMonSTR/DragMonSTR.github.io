@@ -132,6 +132,7 @@ clearBtnEl.addEventListener("click", clearBtnElOnclick, false);
 function clearBtnElOnclick () {
 	messInputEl.value = "";
 	messInputEl.focus();
+	resultEl.innerHTML = "";
 
 	changeNotificationType("tip");
 	notificationEl.innerHTML = "Как пользоваться?";
