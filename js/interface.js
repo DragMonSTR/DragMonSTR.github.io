@@ -8,14 +8,17 @@ const decryptActionBtnEl = document.getElementsByClassName("action-btn")[1];
 
 const resultEl = document.getElementsByClassName("result")[0];
 
+const clearBtnEl = document.getElementsByClassName("clear-btn")[0];
+
 let notificationType = "tip";
 
 
 // change notification when typing in input fields
-keyInputEl.addEventListener("input", inputFieldsChanged, false);
-messInputEl.addEventListener("input", inputFieldsChanged, false);
+keyInputEl.addEventListener("input", inputFieldsOninput, false);
+messInputEl.addEventListener("input", inputFieldsOninput, false);
+messInputEl.addEventListener("input", messInputElOninput, false);
 
-function inputFieldsChanged () {
+function inputFieldsOninput () {
 	const notificationText = notificationEl.innerHTML;
 
 	if (notificationText == "Как пользоваться?") {
@@ -39,6 +42,7 @@ function inputFieldsChanged () {
 			notificationEl.style.opacity = "0.8";
 	}
 
+
 	if (checkFieldsValidity()) {
 		changeNotificationType("accepted");
 		notificationEl.innerHTML = "Данные введены";
@@ -55,6 +59,13 @@ function inputFieldsChanged () {
 		encryptActionBtnEl.classList.add("action-btn-unavailable");
 		decryptActionBtnEl.classList.add("action-btn-unavailable");
 	}
+}
+
+function messInputElOninput () {
+	if (messInputEl.value.length)
+		clearBtnEl.style.display = "block";
+	else
+		clearBtnEl.style.display = "none";
 }
 
 
@@ -78,6 +89,30 @@ function tryDecrypt () {
 	showResult(result);
 }
 
+
+// show clear message btn when textarea is focused
+messInputEl.addEventListener("focus", messInputElOnfocus, false);
+messInputEl.addEventListener("blur", messInputElOnblur, false);
+
+function messInputElOnfocus () {
+	if (messInputEl.value.length)
+		clearBtnEl.style.display = "block";
+}
+
+function messInputElOnblur () {
+	setTimeout(
+		() => clearBtnEl.style.display = "none",
+		0
+	);
+}
+
+
+// clear btn processing
+clearBtnEl.addEventListener("click", clearBtnElOnclick, false);
+
+function clearBtnElOnclick () {
+	messInputEl.value = "";
+}
 
 
 // additional functions
