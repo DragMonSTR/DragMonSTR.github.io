@@ -14,8 +14,8 @@ body {
 	font-weight: 700;
 
 	width: 100%;
-	padding: 5vw 0 0 0;
 	margin: 0 0 4vw 0;
+	padding: 5vw 0 0 0;
 
 	text-align: center;
 	letter-spacing: .05em;
@@ -26,13 +26,13 @@ body {
 
 .notification {
 	font-size: 7vw;
+	line-height: 14vw;
 
-	margin: 0 0 4vw 0;
 	height: 14vw;
+	margin: 0 0 4vw 0;
 
 	transition: opacity .2s ease;
 	text-align: center;
-	line-height: 14vw;
 	letter-spacing: .05em;
 
 	opacity: .5;
@@ -41,6 +41,36 @@ body {
 	background: #470c75;
 }
 
+
+.clear-btn-block {
+	position: absolute;
+	bottom: 0;
+
+	display: flex;
+
+	width: 100%;
+
+	background: green;
+
+	justify-content: center;
+}
+
+.clear-btn {
+	font-size: 5vw;
+
+	display: none;
+
+	width: 100%;
+	padding: 2vw 0;
+
+	transition: letter-spacing .2s ease;
+	letter-spacing: .05em;
+
+	-webkit-tap-highlight-color: transparent;
+}
+.clear-btn:active {
+	letter-spacing: .15em;
+}
 
 
 
@@ -100,7 +130,9 @@ body {
 
 	padding: 0 1vw;
 
-	transition: all .3s ease;
+	transition: opacity .3s ease,
+	font-size .3s ease,
+	top .3s ease;
 	transform: translateY(-50%);
 
 	color: #aaa;
@@ -110,7 +142,7 @@ body {
 .input-field input:focus + .placeholder,
 .input-field textarea:valid + .placeholder,
 .input-field textarea:focus + .placeholder {
-	font-size: 3vw;
+	font-size: 4vw;
 
 	top: .1vw;
 
@@ -143,7 +175,8 @@ body {
 	width: 36.7vw;
 	height: 14vw;
 
-	transition: transform .1s ease;
+	transition: transform .2s ease,
+	opacity .3s ease;
 
 	opacity: .9;
 	border-radius: 2.8vw;
@@ -154,7 +187,7 @@ body {
 	-webkit-tap-highlight-color: transparent;
 }
 .action-btn:active {
-	transform: scale(1.1, 1.1);
+	transform: scale(.9, .9);
 }
 
 .action-btn:first-child {
@@ -172,6 +205,8 @@ body {
 }
 .action-btn-unavailable:active {
 	transform: none;
+
+	opacity: .7;
 }
 
 
