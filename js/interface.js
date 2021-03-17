@@ -1,4 +1,5 @@
 const contentEl = document.getElementsByClassName("content")[0];
+const appNameEl = document.getElementsByClassName("app-name")[0];
 
 const keyInputEl = document.getElementById("key-input");
 const messInputEl = document.getElementById("mess-input");
@@ -22,11 +23,13 @@ keyInputEl.addEventListener("blur", inputFieldsOnblur, false);
 messInputEl.addEventListener("blur", inputFieldsOnblur, false);
 
 function inputFieldsOnfocus () {
-	contentEl.style.top = "-15vw";
+	//contentEl.style.top = "-15vw";
+	appNameEl.style.margin = "-15vw 0 4vw 0";
 }
 
 function inputFieldsOnblur () {
-	contentEl.style.top = "0";
+	//contentEl.style.top = "0";
+	appNameEl.style.margin = "0 0 4vw 0";
 }
 
 
