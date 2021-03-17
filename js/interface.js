@@ -26,7 +26,10 @@ function inputFieldsOnfocus () {
 }
 
 function inputFieldsOnblur () {
-	appNameEl.style.marginTop = "0";
+	setTimeout(
+		() => appNameEl.style.marginTop = "0",
+		200
+	);
 }
 
 
