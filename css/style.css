@@ -8,9 +8,6 @@ body {
 	position: absolute;
 
 	padding: 0 7vw;
-	top: 0;
-
-	transition: top .15s ease;
 }
 
 
@@ -23,6 +20,7 @@ body {
 	padding: 5vw 0 0 0;
 
 	text-align: center;
+	transition: margin .15s ease;
 	letter-spacing: .05em;
 
 	color: #226694;
@@ -43,7 +41,7 @@ body {
 	opacity: .5;
 	color: white;
 	border-radius: 4vw;
-	background: #470c75;
+	background-color: #470c75;
 }
 
 
@@ -81,7 +79,7 @@ body {
 
 	border: .2vw solid rgba(0,0,0, .08);
 	border-radius: 4vw;
-	background: #fff;
+	background-color: #fff;
 	box-shadow: 0 1.5vw 3vw rgba(0,0,0, .15);
 }
 
@@ -145,7 +143,7 @@ body {
 	top: .1vw;
 
 	color: #666;
-	background: #fff;
+	background-color: #fff;
 }
 .input-field input:focus + .placeholder,
 .input-field textarea:focus + .placeholder {
@@ -154,7 +152,7 @@ body {
 	top: .1vw;
 
 	color: #333;
-	background: #fff;
+	background-color: #fff;
 }
 
 .input-field input:valid,
