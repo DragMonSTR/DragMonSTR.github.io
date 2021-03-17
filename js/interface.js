@@ -38,6 +38,8 @@ messInputEl.addEventListener("input", messInputElOninput, false);
 function inputFieldsOninput () {
 	const notificationText = notificationEl.innerHTML;
 
+	resultEl.innerHTML = "";
+
 	if (notificationText == "Как пользоваться?") {
 		if (keyInputEl.value.length || messInputEl.value.length)
 			notificationEl.style.opacity = "0.3";
@@ -130,6 +132,11 @@ clearBtnEl.addEventListener("click", clearBtnElOnclick, false);
 function clearBtnElOnclick () {
 	messInputEl.value = "";
 	messInputEl.focus();
+
+	changeNotificationType("tip");
+	notificationEl.innerHTML = "Как пользоваться?";
+	encryptActionBtnEl.classList.add("action-btn-unavailable");
+	decryptActionBtnEl.classList.add("action-btn-unavailable");
 }
 
 
