@@ -8,7 +8,9 @@ const notificationEl = document.getElementsByClassName("notification")[0];
 const encryptActionBtnEl = document.getElementsByClassName("action-btn")[0];
 const decryptActionBtnEl = document.getElementsByClassName("action-btn")[1];
 
-const resultEl = document.getElementsByClassName("result")[0];
+const resultBlockEl = document.getElementsByClassName("result-block")[0];
+const resultNameEl = document.getElementsByClassName("result-name")[0];
+const resultContentEl = document.getElementsByClassName("result-content")[0];
 
 const clearBtnEl = document.getElementsByClassName("clear-btn")[0];
 
@@ -44,7 +46,7 @@ messInputEl.addEventListener("input", messInputElOninput, false);
 function inputFieldsOninput () {
 	const notificationText = notificationEl.innerHTML;
 
-	resultEl.innerHTML = "";
+	resultBlockEl.style.display = "none";
 
 	if (notificationText == "Как пользоваться?") {
 		if (keyInputEl.value.length || messInputEl.value.length)
@@ -95,23 +97,23 @@ function messInputElOninput () {
 
 
 // action btns processing
-encryptActionBtnEl.addEventListener("click", tryEncrypt, false);
-decryptActionBtnEl.addEventListener("click", tryDecrypt, false);
+encryptActionBtnEl.addEventListener("touchstart", tryEncrypt, false);
+decryptActionBtnEl.addEventListener("touchstart", tryDecrypt, false);
 
 function tryEncrypt () {
 	if (!checkFieldsValidity(true)) return;
 
-	let result = encrypt(messInputEl.value, keyInputEl.value, table);
+	let resultContent = encrypt(messInputEl.value, keyInputEl.value, table);
 
-	showResult(result);
+	showResult("Зашифрованное сообщение:", resultContent);
 }
 
 function tryDecrypt () {
 	if (!checkFieldsValidity(true)) return;
 
-	let result = decrypt(messInputEl.value, keyInputEl.value, table);
+	let resultContent = decrypt(messInputEl.value, keyInputEl.value, table);
 
-	showResult(result);
+	showResult("Расшифрованное сообщение:", resultContent);
 }
 
 
@@ -133,12 +135,12 @@ function messInputElOnblur () {
 
 
 // clear btn processing
-clearBtnEl.addEventListener("click", clearBtnElOnclick, false);
+clearBtnEl.addEventListener("touchstart", clearBtnElOnclick, false);
 
 function clearBtnElOnclick () {
 	messInputEl.value = "";
 	messInputEl.focus();
-	resultEl.innerHTML = "";
+	resultBlockEl.style.display = "none";
 
 	changeNotificationType("tip");
 	notificationEl.innerHTML = "Как пользоваться?";
@@ -191,16 +193,17 @@ function checkFieldsValidity (changeNotification = false) {
 	return true;
 }
 
-function showResult (result) {
-	resultEl.innerHTML = result;
-
-	let tmpEl = document.createElement('textarea');
-	tmpEl.value = result;
-	document.getElementsByTagName('body')[0].append(tmpEl);
-	tmpEl.select();
-	document.execCommand('copy');
-	tmpEl.remove();
+function showResult (resultName, resultContent) {
+	resultBlockEl.style.display = "block";
+	resultNameEl.innerHTML = resultName;
+	resultContentEl.innerHTML = resultContent;
 
 	changeNotificationType("message");
 	notificationEl.innerHTML = "Скопировано";
+
+	// coping result to copy buffer
+	let tmpEl = document.createElement('textarea');
+	tmpEl.value = resultContent;
+	tmpEl.select();
+	document.execCommand('copy');
 }
