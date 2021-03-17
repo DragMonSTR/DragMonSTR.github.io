@@ -5,7 +5,12 @@ body {
 }
 
 .content {
+	position: absolute;
+
 	padding: 0 7vw;
+	top: 0;
+
+	transition: top .3s ease;
 }
 
 
@@ -57,6 +62,8 @@ body {
 
 .clear-btn {
 	font-size: 5vw;
+
+	z-index: 1;
 
 	display: none;
 
@@ -139,8 +146,15 @@ body {
 }
 
 .input-field input:valid + .placeholder,
+.input-field textarea:valid + .placeholder {
+	font-size: 4vw;
+
+	top: .1vw;
+
+	color: #666;
+	background: #fff;
+}
 .input-field input:focus + .placeholder,
-.input-field textarea:valid + .placeholder,
 .input-field textarea:focus + .placeholder {
 	font-size: 4vw;
 
@@ -151,10 +165,16 @@ body {
 }
 
 .input-field input:valid,
+.input-field textarea:valid {
+	transition-delay: .1s;
+
+	border-color: #666;
+	color: #444;
+}
 .input-field input:focus,
-.input-field textarea:valid,
 .input-field textarea:focus {
 	transition-delay: .1s;
+	color: #333;
 
 	border-color: #333;
 }
@@ -164,7 +184,7 @@ body {
 .action-btn-block {
 	display: flex;
 
-	margin: 5vw 0 0 0;
+	margin: 4vw 0 0 0;
 
 	justify-content: space-between;
 }
@@ -213,7 +233,7 @@ body {
 
 
 .result {
-	font-size: 4.5vw;
+	font-size: 5vw;
 
 	word-wrap: break-word;
 
