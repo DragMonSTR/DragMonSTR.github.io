@@ -222,11 +222,25 @@ body {
 
 
 
+.result-name {
+	text-align: center;
+	font-size: 5.5vw;
+	font-weight: 700;
+	margin: 0 0 2vw 0;
+	color: #444;
+}
+
+.result-content {
+	font-size: 5vw;
+	line-height: 1.3em;
+	word-wrap: break-word;
+	color: #444;
+	word-spacing: .1em;
+}
 
 .result {
 	font-size: 5vw;
 
-	word-wrap: break-word;
 
 	color: #444;
 }
