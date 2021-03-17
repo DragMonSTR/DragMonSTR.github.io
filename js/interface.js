@@ -1,3 +1,5 @@
+const contentEl = document.getElementsByClassName("content")[0];
+
 const keyInputEl = document.getElementById("key-input");
 const messInputEl = document.getElementById("mess-input");
 
@@ -11,6 +13,21 @@ const resultEl = document.getElementsByClassName("result")[0];
 const clearBtnEl = document.getElementsByClassName("clear-btn")[0];
 
 let notificationType = "tip";
+
+
+// move content when focus or blur input elements
+keyInputEl.addEventListener("focus", inputFieldsOnfocus, false);
+messInputEl.addEventListener("focus", inputFieldsOnfocus, false);
+keyInputEl.addEventListener("blur", inputFieldsOnblur, false);
+messInputEl.addEventListener("blur", inputFieldsOnblur, false);
+
+function inputFieldsOnfocus () {
+	contentEl.style.top = "-15vw";
+}
+
+function inputFieldsOnblur () {
+	contentEl.style.top = "0";
+}
 
 
 // change notification when typing in input fields
@@ -112,6 +129,7 @@ clearBtnEl.addEventListener("click", clearBtnElOnclick, false);
 
 function clearBtnElOnclick () {
 	messInputEl.value = "";
+	messInputEl.focus();
 }
 
 
