@@ -97,8 +97,8 @@ function messInputElOninput () {
 
 
 // action btns processing
-encryptActionBtnEl.addEventListener("touchstart", tryEncrypt, false);
-decryptActionBtnEl.addEventListener("touchstart", tryDecrypt, false);
+encryptActionBtnEl.addEventListener("click", tryEncrypt, false);
+decryptActionBtnEl.addEventListener("click", tryDecrypt, false);
 
 function tryEncrypt () {
 	if (!checkFieldsValidity(true)) return;
@@ -135,7 +135,7 @@ function messInputElOnblur () {
 
 
 // clear btn processing
-clearBtnEl.addEventListener("touchstart", clearBtnElOnclick, false);
+clearBtnEl.addEventListener("click", clearBtnElOnclick, false);
 
 function clearBtnElOnclick () {
 	messInputEl.value = "";
