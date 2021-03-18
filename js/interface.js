@@ -1,20 +1,55 @@
-const appNameEl = document.getElementsByClassName("app-name")[0];
+const appNameEl = getElByClassName("app-name");
+
+const notificationEl = getElByClassName("notification");
+const notificationTextEl = getElByClassName("notification-text");
+const notificationDetailsEl = getElByClassName("notification-details");
+const closeDetailsBtnEl = getElByClassName("close-details-btn");
 
 const keyInputEl = document.getElementById("key-input");
 const messInputEl = document.getElementById("mess-input");
 
-const notificationEl = document.getElementsByClassName("notification")[0];
 
-const encryptActionBtnEl = document.getElementsByClassName("action-btn")[0];
-const decryptActionBtnEl = document.getElementsByClassName("action-btn")[1];
+const encryptActionBtnEl = getElByClassName("action-btn", 0);
+const decryptActionBtnEl = getElByClassName("action-btn", 1);
 
-const resultBlockEl = document.getElementsByClassName("result-block")[0];
-const resultNameEl = document.getElementsByClassName("result-name")[0];
-const resultContentEl = document.getElementsByClassName("result-content")[0];
+const resultBlockEl = getElByClassName("result-block");
+const resultNameEl = getElByClassName("result-name");
+const resultContentEl = getElByClassName("result-content");
 
-const clearBtnEl = document.getElementsByClassName("clear-btn")[0];
+const clearBtnEl = getElByClassName("clear-btn");
+
+function getElByClassName (className, i = 0) {
+	return document.getElementsByClassName(className)[i];
+}
 
 let notificationType = "tip";
+
+
+// tip communication
+notificationTextEl.addEventListener("click", notificationTextElOnclick, false);
+closeDetailsBtnEl.addEventListener("click", closeDetailsBtnElOnclick, false);
+
+function notificationTextElOnclick () {
+	setTimeout(
+		() => {
+			notificationTextEl.style.display = "none";
+			notificationDetailsEl.style.display = "block";
+			setTimeout(() => closeDetailsBtnEl.style.display = "block", 0);
+			notificationEl.style.height = "calc(100vh - 15vw)";
+			notificationEl.style.marginTop = "5vw";
+		},
+		0
+	);
+}
+
+function closeDetailsBtnElOnclick () {
+	notificationTextEl.style.display = "block";
+	notificationDetailsEl.style.display = "none";
+	closeDetailsBtnEl.style.display = "none";
+
+	notificationEl.style.height = "14vw";
+	notificationEl.style.marginTop = "18vw";
+}
 
 
 // move content when focus or blur input elements
@@ -25,14 +60,20 @@ messInputEl.addEventListener("blur", inputFieldsOnblur, false);
 
 function inputFieldsOnfocus () {
 	setTimeout(
-		() => appNameEl.style.marginTop = "-15vw",
+		() => {
+			appNameEl.style.marginTop = "-15vw";
+			notificationEl.style.marginTop = "3vw";
+		},
 		0
 	);
 }
 
 function inputFieldsOnblur () {
 	setTimeout(
-		() => appNameEl.style.marginTop = "0",
+		() => {
+			appNameEl.style.marginTop = "0";
+			notificationEl.style.marginTop = "18vw";
+		},
 		0
 	);
 }
@@ -44,35 +85,35 @@ messInputEl.addEventListener("input", inputFieldsOninput, false);
 messInputEl.addEventListener("input", messInputElOninput, false);
 
 function inputFieldsOninput () {
-	const notificationText = notificationEl.innerHTML;
+	const notificationText = notificationTextEl.innerHTML;
 
 	resultBlockEl.style.display = "none";
 
 	if (notificationText == "Как пользоваться?") {
 		if (keyInputEl.value.length || messInputEl.value.length)
-			notificationEl.style.opacity = "0.3";
+			notificationEl.style.backgroundColor = "#b89dce";
 		else
-			notificationEl.style.opacity = "0.5";
+			notificationEl.style.backgroundColor = "#9775b3";
 	}
 
 	else if (notificationText == "Введите ключ") {
 		if (keyInputEl.value.length)
-			notificationEl.style.opacity = "0.5";
+			notificationEl.style.backgroundColor = "#b3758b";
 		else
-			notificationEl.style.opacity = "0.8";
+			notificationEl.style.backgroundColor = "#994161";
 	}
 
 	else if (notificationText == "Введите сообщение") {
 		if (messInputEl.value.length)
-			notificationEl.style.opacity = "0.5";
+			notificationEl.style.backgroundColor = "#b3758b";
 		else
-			notificationEl.style.opacity = "0.8";
+			notificationEl.style.backgroundColor = "#994161";
 	}
 
 
 	if (checkFieldsValidity()) {
 		changeNotificationType("accepted");
-		notificationEl.innerHTML = "Данные введены";
+		notificationTextEl.innerHTML = "Данные введены";
 
 		encryptActionBtnEl.classList.remove("action-btn-unavailable");
 		decryptActionBtnEl.classList.remove("action-btn-unavailable");
@@ -80,7 +121,7 @@ function inputFieldsOninput () {
 	else {
 		if (notificationType == "accepted") {
 			changeNotificationType("tip");
-			notificationEl.innerHTML = "Как пользоваться?";
+			notificationTextEl.innerHTML = "Как пользоваться?";
 		}
 
 		encryptActionBtnEl.classList.add("action-btn-unavailable");
@@ -143,7 +184,7 @@ function clearBtnElOnclick () {
 	resultBlockEl.style.display = "none";
 
 	changeNotificationType("tip");
-	notificationEl.innerHTML = "Как пользоваться?";
+	notificationTextEl.innerHTML = "Как пользоваться?";
 	encryptActionBtnEl.classList.add("action-btn-unavailable");
 	decryptActionBtnEl.classList.add("action-btn-unavailable");
 }
@@ -154,24 +195,16 @@ function changeNotificationType (type) {
 	notificationType = type;
 
 	if (type == "tip") {
-		notificationEl.style.background = "#470c75";
-		notificationEl.style.color = "#fff";
-		notificationEl.style.opacity = "0.5";
+		notificationEl.style.background = "#9775b3";
 	}
 	else if (type == "warning") {
-		notificationEl.style.background = "#7f113a";
-		notificationEl.style.color = "#fff";
-		notificationEl.style.opacity = "0.8";
+		notificationEl.style.background = "#994161";
 	}
 	else if (type == "accepted") {
-		notificationEl.style.background = "#5c974c";
-		notificationEl.style.color = "#fff";
-		notificationEl.style.opacity = "0.5";
+		notificationEl.style.background = "#a3c69a";
 	}
 	else if (type == "message") {
-		notificationEl.style.background = "#5c974c";
-		notificationEl.style.color = "#fff";
-		notificationEl.style.opacity = "0.8";
+		notificationEl.style.background = "#699c5b";
 	}
 }
 
@@ -179,14 +212,14 @@ function checkFieldsValidity (changeNotification = false) {
 	if (!keyInputEl.value.length) {
 		if (!changeNotification) return false;
 		changeNotificationType("warning");
-		notificationEl.innerHTML = "Введите ключ";
+		notificationTextEl.innerHTML = "Введите ключ";
 		return false;
 	}
 
 	if (!messInputEl.value.length) {
 		if (!changeNotification) return false;
 		changeNotificationType("warning");
-		notificationEl.innerHTML = "Введите сообщение";
+		notificationTextEl.innerHTML = "Введите сообщение";
 		return false;
 	}
 
@@ -199,7 +232,7 @@ function showResult (resultName, resultContent) {
 	resultContentEl.innerHTML = resultContent;
 
 	changeNotificationType("message");
-	notificationEl.innerHTML = "Скопировано";
+	notificationTextEl.innerHTML = "Скопировано";
 
 	// coping result to copy buffer
 	let tmpEl = document.createElement('textarea');
