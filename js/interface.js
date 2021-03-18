@@ -103,7 +103,7 @@ decryptActionBtnEl.addEventListener("touchstart", tryDecrypt, false);
 function tryEncrypt () {
 	if (!checkFieldsValidity(true)) return;
 
-	let resultContent = encrypt(messInputEl.value, keyInputEl.value, table);
+	const resultContent = encrypt(messInputEl.value, keyInputEl.value);
 
 	showResult("Зашифрованное сообщение:", resultContent);
 }
@@ -111,7 +111,7 @@ function tryEncrypt () {
 function tryDecrypt () {
 	if (!checkFieldsValidity(true)) return;
 
-	let resultContent = decrypt(messInputEl.value, keyInputEl.value, table);
+	const resultContent = decrypt(messInputEl.value, keyInputEl.value);
 
 	showResult("Расшифрованное сообщение:", resultContent);
 }
@@ -203,7 +203,9 @@ function showResult (resultName, resultContent) {
 
 	// coping result to copy buffer
 	let tmpEl = document.createElement('textarea');
+	document.getElementsByTagName('body')[0].append(tmpEl);
 	tmpEl.value = resultContent;
 	tmpEl.select();
 	document.execCommand('copy');
+	tmpEl.remove();
 }
