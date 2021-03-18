@@ -221,6 +221,11 @@ body {
 }
 
 
+.result-block {
+	max-width: 86vw;
+	height: 45vw;
+	overflow-y: auto;
+}
 
 .result-name {
 	text-align: center;
@@ -236,11 +241,4 @@ body {
 	word-wrap: break-word;
 	color: #444;
 	word-spacing: .1em;
-}
-
-.result {
-	font-size: 5vw;
-
-
-	color: #444;
 }
