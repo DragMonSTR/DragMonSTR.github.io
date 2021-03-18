@@ -14,18 +14,18 @@ function encrypt (original, key) {
 	return encrypted;
 }
 
-function decrypt (original, key) {
-	let decrypted = '';
+function decrypt (encrypted, key) {
+	let original = '';
 
-	for (let i in original) {
-		const originalSymbolCode = original.charCodeAt(i);
+	for (let i in encrypted) {
+		const encryptedSymbolCode = encrypted.charCodeAt(i);
 		const keySymbolCode = key.charCodeAt(i % key.length);
 
-		let decryptedSymbolCode = originalSymbolCode - keySymbolCode;
-		if (decryptedSymbolCode < 0) decryptedSymbolCode += 65536;
+		let originalSymbolCode = encryptedSymbolCode - keySymbolCode;
+		if (originalSymbolCode < 0) encryptedSymbolCode += 65536;
 
-		decrypted += String.fromCharCode(decryptedSymbolCode);
+		original += String.fromCharCode(originalSymbolCode);
 	}
 
-	return decrypted;
+	return original;
 }
