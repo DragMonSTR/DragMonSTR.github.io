@@ -22,7 +22,7 @@ function decrypt (encrypted, key) {
 		const keySymbolCode = key.charCodeAt(i % key.length);
 
 		let originalSymbolCode = encryptedSymbolCode - keySymbolCode;
-		if (originalSymbolCode < 0) encryptedSymbolCode += 65536;
+		if (originalSymbolCode < 0) originalSymbolCode += 65536;
 
 		original += String.fromCharCode(originalSymbolCode);
 	}
