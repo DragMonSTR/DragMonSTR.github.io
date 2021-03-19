@@ -30,16 +30,17 @@ notificationTextEl.addEventListener("click", notificationTextElOnclick, false);
 closeDetailsBtnEl.addEventListener("click", closeDetailsBtnElOnclick, false);
 
 function notificationTextElOnclick () {
-	setTimeout(
-		() => {
+	const notificationText = notificationTextEl.innerHTML;
+	if (notificationType != "tip" && notificationType != "tip-light") return;
+
+	setTimeout(() => {
+			changeNotificationType("tip");
 			notificationTextEl.style.display = "none";
 			notificationDetailsEl.style.display = "block";
-			setTimeout(() => closeDetailsBtnEl.style.display = "block", 0);
-			notificationEl.style.height = "calc(100vh - 15vw)";
+			setTimeout(() => closeDetailsBtnEl.style.display = "block", 250);
+			notificationEl.style.height = "calc(100vh - 25vw)";
 			notificationEl.style.marginTop = "5vw";
-		},
-		0
-	);
+		}, 0);
 }
 
 function closeDetailsBtnElOnclick () {
@@ -52,88 +53,109 @@ function closeDetailsBtnElOnclick () {
 }
 
 
-// move content when focus or blur input elements
+// move content when focus/blur input elements
 keyInputEl.addEventListener("focus", inputFieldsOnfocus, false);
 messInputEl.addEventListener("focus", inputFieldsOnfocus, false);
 keyInputEl.addEventListener("blur", inputFieldsOnblur, false);
 messInputEl.addEventListener("blur", inputFieldsOnblur, false);
 
 function inputFieldsOnfocus () {
-	setTimeout(
-		() => {
-			appNameEl.style.marginTop = "-15vw";
+	setTimeout(() => {
+			appNameEl.style.marginTop = "-10vw";
 			notificationEl.style.marginTop = "3vw";
-		},
-		0
-	);
+		}, 0);
 }
 
 function inputFieldsOnblur () {
-	setTimeout(
-		() => {
-			appNameEl.style.marginTop = "0";
+	setTimeout(() => {
+			appNameEl.style.marginTop = "5vw";
 			notificationEl.style.marginTop = "18vw";
-		},
-		0
-	);
+		}, 0);
 }
 
 
 // change notification when typing in input fields
 keyInputEl.addEventListener("input", inputFieldsOninput, false);
 messInputEl.addEventListener("input", inputFieldsOninput, false);
-messInputEl.addEventListener("input", messInputElOninput, false);
 
 function inputFieldsOninput () {
-	const notificationText = notificationTextEl.innerHTML;
-
 	resultBlockEl.style.display = "none";
 
-	if (notificationText == "Как пользоваться?") {
-		if (keyInputEl.value.length || messInputEl.value.length)
-			notificationEl.style.backgroundColor = "#b89dce";
-		else
-			notificationEl.style.backgroundColor = "#9775b3";
-	}
+	const notificationText = notificationTextEl.innerHTML;
+	const keyLength = keyInputEl.value.length;
+	const messLength = messInputEl.value.length;
 
-	else if (notificationText == "Введите ключ") {
-		if (keyInputEl.value.length)
-			notificationEl.style.backgroundColor = "#b3758b";
-		else
-			notificationEl.style.backgroundColor = "#994161";
-	}
-
-	else if (notificationText == "Введите сообщение") {
-		if (messInputEl.value.length)
-			notificationEl.style.backgroundColor = "#b3758b";
-		else
-			notificationEl.style.backgroundColor = "#994161";
-	}
-
-
-	if (checkFieldsValidity()) {
-		changeNotificationType("accepted");
-		notificationTextEl.innerHTML = "Данные введены";
-
+	if (keyLength && messLength) {
 		encryptActionBtnEl.classList.remove("action-btn-unavailable");
 		decryptActionBtnEl.classList.remove("action-btn-unavailable");
+
+		changeNotificationType("accepted");
+		notificationTextEl.innerHTML = "Данные введены";
 	}
 	else {
-		if (notificationType == "accepted") {
+		encryptActionBtnEl.classList.add("action-btn-unavailable");
+		decryptActionBtnEl.classList.add("action-btn-unavailable");
+
+		if (notificationType == "tip") {
+			if (keyLength || messLength)
+				changeNotificationType("tip-light");
+		}
+		else if (notificationType == "tip-light") {
+			if (!keyLength && !messLength)
+				changeNotificationType("tip");
+		}
+
+		else if (notificationText == "Введите ключ") {
+			if (keyLength)
+				changeNotificationType("warning-light");
+			else
+				changeNotificationType("warning");
+		}
+		else if (notificationText == "Введите сообщение") {
+			if (messLength)
+				changeNotificationType("warning-light");
+			else
+				changeNotificationType("warning");
+		}
+
+		else if (notificationType == "accepted") {
 			changeNotificationType("tip");
 			notificationTextEl.innerHTML = "Как пользоваться?";
 		}
-
-		encryptActionBtnEl.classList.add("action-btn-unavailable");
-		decryptActionBtnEl.classList.add("action-btn-unavailable");
 	}
 }
 
-function messInputElOninput () {
+
+// show/hide clear btn
+messInputEl.addEventListener("input", updateClearBtnVisibility, false);
+messInputEl.addEventListener("focus", updateClearBtnVisibility, false);
+messInputEl.addEventListener("blur", hideClearBtn, false);
+
+function updateClearBtnVisibility () {
 	if (messInputEl.value.length)
 		clearBtnEl.style.display = "block";
 	else
 		clearBtnEl.style.display = "none";
+}
+
+function hideClearBtn () {
+	setTimeout(() => clearBtnEl.style.display = "none",
+		0);
+}
+
+
+// clear btn processing
+clearBtnEl.addEventListener("click", clearBtnElOnclick, false);
+
+function clearBtnElOnclick () {
+	messInputEl.value = "";
+	messInputEl.focus();
+	resultBlockEl.style.display = "none";
+
+	changeNotificationType("tip");
+	notificationTextEl.innerHTML = "Как пользоваться?";
+	encryptActionBtnEl.classList.add("action-btn-unavailable");
+	decryptActionBtnEl.classList.add("action-btn-unavailable");
 }
 
 
@@ -158,54 +180,19 @@ function tryDecrypt () {
 }
 
 
-// show clear message btn when textarea is focused
-messInputEl.addEventListener("focus", messInputElOnfocus, false);
-messInputEl.addEventListener("blur", messInputElOnblur, false);
-
-function messInputElOnfocus () {
-	if (messInputEl.value.length)
-		clearBtnEl.style.display = "block";
-}
-
-function messInputElOnblur () {
-	setTimeout(
-		() => clearBtnEl.style.display = "none",
-		0
-	);
-}
-
-
-// clear btn processing
-clearBtnEl.addEventListener("click", clearBtnElOnclick, false);
-
-function clearBtnElOnclick () {
-	messInputEl.value = "";
-	messInputEl.focus();
-	resultBlockEl.style.display = "none";
-
-	changeNotificationType("tip");
-	notificationTextEl.innerHTML = "Как пользоваться?";
-	encryptActionBtnEl.classList.add("action-btn-unavailable");
-	decryptActionBtnEl.classList.add("action-btn-unavailable");
-}
-
-
 // additional functions
 function changeNotificationType (type) {
 	notificationType = type;
 
-	if (type == "tip") {
-		notificationEl.style.background = "#9775b3";
-	}
-	else if (type == "warning") {
-		notificationEl.style.background = "#994161";
-	}
-	else if (type == "accepted") {
-		notificationEl.style.background = "#a3c69a";
-	}
-	else if (type == "message") {
-		notificationEl.style.background = "#699c5b";
-	}
+	let backgroundColor;
+	if (type == "tip") backgroundColor = "#9775b3";
+	else if (type == "tip-light") backgroundColor = "#b89dce";
+	else if (type == "warning") backgroundColor = "#994161";
+	else if (type == "warning-light") backgroundColor = "#b3758b";
+	else if (type == "accepted") backgroundColor = "#a3c69a";
+	else if (type == "message") backgroundColor = "#699c5b";
+
+	notificationEl.style.backgroundColor = backgroundColor;
 }
 
 function checkFieldsValidity (changeNotification = false) {
