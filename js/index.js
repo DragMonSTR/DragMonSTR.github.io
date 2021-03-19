@@ -1,15 +1,19 @@
+const unicodeSize = 65536;
+
 function encrypt (original, key) {
-	let encrypted = '';
+	let encrypted = "";
 
 	for (let i in original) {
 		const originalSymbolCode = original.charCodeAt(i);
 		const keySymbolCode = key.charCodeAt(i % key.length);
 
 		let ecryptedSymbolCode = originalSymbolCode + keySymbolCode;
-		if (ecryptedSymbolCode >= 65536) ecryptedSymbolCode -= 65536;
+		if (ecryptedSymbolCode >= unicodeSize) ecryptedSymbolCode -= unicodeSize;
 
 		encrypted += String.fromCharCode(ecryptedSymbolCode);
 	}
+
+	temp = encrypted[0];
 
 	return encrypted;
 }
@@ -22,7 +26,7 @@ function decrypt (encrypted, key) {
 		const keySymbolCode = key.charCodeAt(i % key.length);
 
 		let originalSymbolCode = encryptedSymbolCode - keySymbolCode;
-		if (originalSymbolCode < 0) originalSymbolCode += 65536;
+		if (originalSymbolCode < 0) originalSymbolCode += unicodeSize;
 
 		original += String.fromCharCode(originalSymbolCode);
 	}
