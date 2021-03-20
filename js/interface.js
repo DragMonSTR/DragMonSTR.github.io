@@ -1,56 +1,21 @@
-const appNameEl = getElByClassName("app-name");
-
-const notificationEl = getElByClassName("notification");
-const notificationTextEl = getElByClassName("notification-text");
-const notificationDetailsEl = getElByClassName("notification-details");
-const closeDetailsBtnEl = getElByClassName("close-details-btn");
+const cardEl = getElByClassName("card");
 
 const keyInputEl = document.getElementById("key-input");
 const messInputEl = document.getElementById("mess-input");
 
-
 const encryptActionBtnEl = getElByClassName("action-btn", 0);
 const decryptActionBtnEl = getElByClassName("action-btn", 1);
 
-const resultBlockEl = getElByClassName("result-block");
-const resultNameEl = getElByClassName("result-name");
-const resultContentEl = getElByClassName("result-content");
-
 const clearBtnEl = getElByClassName("clear-btn");
+
+const notificationBlockEl = getElByClassName("notification-block");
+const notificationEl = getElByClassName("notification");
 
 function getElByClassName (className, i = 0) {
 	return document.getElementsByClassName(className)[i];
 }
 
 let notificationType = "tip";
-
-
-// tip communication
-notificationTextEl.addEventListener("click", notificationTextElOnclick, false);
-closeDetailsBtnEl.addEventListener("click", closeDetailsBtnElOnclick, false);
-
-function notificationTextElOnclick () {
-	const notificationText = notificationTextEl.innerHTML;
-	if (notificationType != "tip" && notificationType != "tip-light") return;
-
-	setTimeout(() => {
-			changeNotificationType("tip");
-			notificationTextEl.style.display = "none";
-			notificationDetailsEl.style.display = "block";
-			setTimeout(() => closeDetailsBtnEl.style.display = "block", 150);
-			notificationEl.style.height = "calc(100vh - 30vw)";
-			notificationEl.style.marginTop = "3vw";
-		}, 0);
-}
-
-function closeDetailsBtnElOnclick () {
-	notificationTextEl.style.display = "block";
-	notificationDetailsEl.style.display = "none";
-	closeDetailsBtnEl.style.display = "none";
-
-	notificationEl.style.height = "14vw";
-	notificationEl.style.marginTop = "16vw";
-}
 
 
 // move content when focus/blur input elements
@@ -61,27 +26,30 @@ messInputEl.addEventListener("blur", inputFieldsOnblur, false);
 
 function inputFieldsOnfocus () {
 	setTimeout(() => {
-			appNameEl.style.marginTop = "-10vw";
-			notificationEl.style.marginTop = "1vw";
+			cardEl.style.marginTop = "4vw";
 		}, 0);
 }
 
 function inputFieldsOnblur () {
 	setTimeout(() => {
-			appNameEl.style.marginTop = "4vw";
-			notificationEl.style.marginTop = "16vw";
+			cardEl.style.marginTop = "7vw";
 		}, 0);
 }
 
 
 // change notification when typing in input fields
-keyInputEl.addEventListener("input", inputFieldsOninput, false);
-messInputEl.addEventListener("input", inputFieldsOninput, false);
+keyInputEl.addEventListener("input", keyInputElOninput, false);
+messInputEl.addEventListener("input", messInputElOninput, false);
+
+function keyInputElOninput () {
+
+}
+
+function messInputElOninput () {
+	
+}
 
 function inputFieldsOninput () {
-	resultBlockEl.style.display = "none";
-
-	const notificationText = notificationTextEl.innerHTML;
 	const keyLength = keyInputEl.value.length;
 	const messLength = messInputEl.value.length;
 
@@ -185,32 +153,38 @@ function changeNotificationType (type) {
 	notificationType = type;
 
 	let backgroundColor;
-	if (type == "tip") backgroundColor = "#9775b3";
-	else if (type == "tip-light") backgroundColor = "#b89dce";
-	else if (type == "warning") backgroundColor = "#994161";
-	else if (type == "warning-light") backgroundColor = "#b3758b";
+	if (type == "warning") backgroundColor = "#994161";
 	else if (type == "accepted") backgroundColor = "#a3c69a";
-	else if (type == "message") backgroundColor = "#699c5b";
 
-	notificationEl.style.backgroundColor = backgroundColor;
+	notificationBlockEl.style.backgroundColor = backgroundColor;
 }
 
-function checkFieldsValidity (changeNotification = false) {
+function checkFieldsValidity (needToshowNotification = false) {
 	if (!keyInputEl.value.length) {
-		if (!changeNotification) return false;
-		changeNotificationType("warning");
-		notificationTextEl.innerHTML = "Введите ключ";
+		if (!needToshowNotification) return false;
+		showNotification("warning", "Введите ключ!");
 		return false;
 	}
 
 	if (!messInputEl.value.length) {
-		if (!changeNotification) return false;
-		changeNotificationType("warning");
-		notificationTextEl.innerHTML = "Введите сообщение";
+		if (!needToshowNotification) return false;
+		showNotification("warning", "Введите сообщение!");
 		return false;
 	}
 
 	return true;
+}
+
+function showNotification (notificationType, notificationText) {
+	if (notificationType == "warning")
+		notificationBlockEl.style.backgroundColor = "#994161";
+	else if (notificationType == "accepted")
+		notificationBlockEl.style.backgroundColor = "#a3c69a";
+
+	notificationEl.innerHTML = notificationText;
+
+	notificationBlockEl.style.display = "flex";
+	notificationBlockEl.style.bottom = "0";
 }
 
 function showResult (resultName, resultContent) {
