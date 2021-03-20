@@ -15,55 +15,43 @@
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 	<body>
-		<div class="test-div">
-			<div class="column-1 column"></div>
-			<div class="column-2 column"></div>
-			<div class="column-3 column"></div>
-			<div class="column-4 column"></div>
-			<div class="column-5 column"></div>
-		</div>
-
 		<button class="clear-btn">очистить</button>
 
 		<div class="content">
-			<button class="close-details-btn">свернуть</button>
-			<div class="notification">
-				<p class="notification-text">Как пользоваться?</p>
-				<div class="notification-details">
-					<p class="notification-details-paragraph center">
-						Добро пожаловать в шифратор!
-					</p>
-					<p class="notification-details-paragraph center">
-						Для <span class="red">шифрования</span> вам понадобятся:
-					</p>
-					<p class="notification-details-paragraph">
-						1. <span class="yellow">Ключ</span> - любое секретное слово или фраза, например "абрикос"
-					</p>
-					<p class="notification-details-paragraph">
-						2. <span class="yellow">Сообщение</span> - текст, который желаете зашифровать
-					</p>
-					<p class="notification-details-paragraph">
-						Заполните оба поля, и нажмите на <span class="red">красную</span> кнопку. Текст зашифруется и скопируется
-					</p>
 
-					<p class="notification-details-paragraph center">
-						Для <span class="green">расшифровки</span> вам понадобятся:
-					</p>
-					<p class="notification-details-paragraph">
-						1. <span class="yellow">Ключ</span>, которым было произведено шифрование
-					</p>
-					<p class="notification-details-paragraph">
-						2. <span class="yellow">Сообщение</span> - зашифрованный ранее текст
-					</p>
-					<p class="notification-details-paragraph">
-						Заполните оба поля, и нажмите на <span class="green">зеленую</span> кнопку. Текст расшифруется и скопируется
-					</p>
-				</div>
+			<div class="gide" style="display: none">
+				<p class="notification-details-paragraph center">
+					Добро пожаловать в шифратор!
+				</p>
+				<p class="notification-details-paragraph center">
+					Для <span class="red">шифрования</span> вам понадобятся:
+				</p>
+				<p class="notification-details-paragraph">
+					1. <span class="yellow">Ключ</span> - любое секретное слово или фраза, например "абрикос"
+				</p>
+				<p class="notification-details-paragraph">
+					2. <span class="yellow">Сообщение</span> - текст, который желаете зашифровать
+				</p>
+				<p class="notification-details-paragraph">
+					Заполните оба поля, и нажмите на <span class="red">красную</span> кнопку. Текст зашифруется и скопируется
+				</p>
+
+				<p class="notification-details-paragraph center">
+					Для <span class="green">расшифровки</span> вам понадобятся:
+				</p>
+				<p class="notification-details-paragraph">
+					1. <span class="yellow">Ключ</span>, которым было произведено шифрование
+				</p>
+				<p class="notification-details-paragraph">
+					2. <span class="yellow">Сообщение</span> - зашифрованный ранее текст
+				</p>
+				<p class="notification-details-paragraph">
+					Заполните оба поля, и нажмите на <span class="green">зеленую</span> кнопку. Текст расшифруется и скопируется
+				</p>
 			</div>
-
-			<p class="app-name">Шифратор</p>
 			
 			<div class="card">
 				<label class="input-field">
@@ -81,6 +69,8 @@
 					<button class="action-btn action-btn-unavailable"></button>
 				</div>
 			</div>
+
+			<div class="show-guide-btn">Как пользоваться?</div>
 
 			<div class="result-block">
 				<p class="result-name"></p>
