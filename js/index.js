@@ -13,8 +13,6 @@ function encrypt (original, key) {
 		encrypted += String.fromCharCode(ecryptedSymbolCode);
 	}
 
-	temp = encrypted[0];
-
 	return encrypted;
 }
 
