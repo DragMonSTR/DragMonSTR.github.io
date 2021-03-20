@@ -37,28 +37,28 @@ body {
 .notification-block {
 	position: absolute;
 	bottom: -20vw;
-	display: none;
 
+	display: none;
 	display: flex;
 
 	width: 100vw;
 	height: 20vw;
 
-	background: green;
-
 	transition: bottom .3s ease;
+
+	border-radius: 9vw 9vw 0 0;
+	background: green;
 
 	justify-content: center;
 	align-items: center;
-	border-radius: 9vw 9vw 0 0;
 }
 
 .notification {
 	font-size: 7vw;
 	font-weight: 600;
+
 	letter-spacing: .1em;
 	word-spacing: .1em;
-
 
 	color: #fff;
 }
@@ -122,8 +122,12 @@ body {
 }
 
 
+
+
+
 .clear-btn {
-	font-size: 5vw;
+	font-size: 6vw;
+	font-weight: 400;
 
 	position: absolute;
 	z-index: 1;
@@ -132,59 +136,13 @@ body {
 	display: none;
 
 	width: 100%;
-	padding: 2.5vw 0;
+	padding: 1.8vw 0;
 
 	transition: letter-spacing .2s ease;
-	letter-spacing: .05em;
+	letter-spacing: .1em;
 
 	color: #333;
 	background-color: #eee;
 
 	-webkit-tap-highlight-color: transparent;
-}
-.clear-btn:active {
-	letter-spacing: .15em;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.result-block {
-	overflow-y: auto;
-
-	max-width: 86vw;
-	height: 32vw;
-}
-
-.result-name {
-	font-size: 5.5vw;
-	font-weight: 700;
-
-	margin: 0 0 2vw 0;
-
-	text-align: center;
-
-	color: #444;
-}
-
-.result-content {
-	font-size: 5vw;
-	line-height: 1.3em;
-
-	word-spacing: .1em;
-	word-wrap: break-word;
-
-	color: #444;
 }

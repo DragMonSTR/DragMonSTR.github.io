@@ -10,6 +10,9 @@
 	flex-direction: column;
 
 	margin-top: 7vw;
+	margin-bottom: 15vw;
+
+	transition: margin-top .1s ease;
 }
 
 
@@ -20,8 +23,8 @@
 	margin: 0 0 4vw 0;
 }
 
-#key-input,
-#mess-input {
+.key-input,
+.mess-input {
 	font-size: 7vw;
 
 	width: 100%;
@@ -40,11 +43,8 @@
 	   -moz-appearance: none;
 	        appearance: none;
 }
-.wrong-input-field {
-	border: .3vw solid #f55;
-}
 
-#mess-input {
+.mess-input {
 	height: 35vw;
 }
 
@@ -62,21 +62,21 @@
 	top .3s ease,
 	color .3s ease;
 	transform: translateY(-50%);
-	background-color: #fff;
 
 	color: #aaa;
+	background-color: #fff;
 }
 
-#key-input:valid + .placeholder,
-#mess-input:valid + .placeholder {
+.key-input:valid + .placeholder,
+.mess-input:valid + .placeholder {
 	font-size: 5vw;
 
 	top: .1vw;
 
 	color: #666;
 }
-#key-input:focus + .placeholder,
-#mess-input:focus + .placeholder {
+.key-input:focus + .placeholder,
+.mess-input:focus + .placeholder {
 	font-size: 5vw;
 
 	top: .1vw;
@@ -84,19 +84,26 @@
 	color: #333;
 }
 
-#key-input:valid,
-#mess-input:valid {
+.key-input:valid,
+.mess-input:valid {
 	transition-delay: .1s;
 
 	color: #444;
 	border-color: #666;
 }
-#key-input:focus,
-#mess-input:focus {
+.key-input:focus,
+.mess-input:focus {
 	transition-delay: .1s;
 
 	color: #333;
 	border-color: #333;
+}
+
+.wrong-input-field + .placeholder {
+	color: #f55;
+}
+.wrong-input-field {
+	border: .3vw solid #f55;
 }
 
 
@@ -146,4 +153,18 @@
 	transform: none;
 
 	opacity: .7;
+}
+
+
+.encrypted-status-message {
+	font-size: 6vw;
+
+	display: none;
+
+	text-align: center;
+
+	letter-spacing: .1em;
+	word-spacing: 0.1em;
+
+	color: #444;
 }
