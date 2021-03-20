@@ -14,6 +14,41 @@ body {
 }
 
 
+.test-div {
+	display: flex;
+	position: absolute;
+}
+
+.column {
+	width: 20vw;
+}
+
+.column-1 {
+	height: 100vh;
+	background: green;
+}
+
+.column-2 {
+	height: 95vh;
+	background: black;
+}
+
+.column-3 {
+	height: 90vh;
+	background: green;
+}
+
+.column-4 {
+	height: 85vh;
+	background: black;
+}
+
+.column-5 {
+	height: 80vh;
+	background: green;
+}
+
+
 .app-name {
 	font-size: 9vw;
 	font-weight: 700;
