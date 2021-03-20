@@ -37,9 +37,9 @@ function notificationTextElOnclick () {
 			changeNotificationType("tip");
 			notificationTextEl.style.display = "none";
 			notificationDetailsEl.style.display = "block";
-			setTimeout(() => closeDetailsBtnEl.style.display = "block", 250);
-			notificationEl.style.height = "calc(100vh - 25vw)";
-			notificationEl.style.marginTop = "5vw";
+			setTimeout(() => closeDetailsBtnEl.style.display = "block", 150);
+			notificationEl.style.height = "calc(100vh - 30vw)";
+			notificationEl.style.marginTop = "3vw";
 		}, 0);
 }
 
@@ -49,7 +49,7 @@ function closeDetailsBtnElOnclick () {
 	closeDetailsBtnEl.style.display = "none";
 
 	notificationEl.style.height = "14vw";
-	notificationEl.style.marginTop = "18vw";
+	notificationEl.style.marginTop = "16vw";
 }
 
 
@@ -62,14 +62,14 @@ messInputEl.addEventListener("blur", inputFieldsOnblur, false);
 function inputFieldsOnfocus () {
 	setTimeout(() => {
 			appNameEl.style.marginTop = "-10vw";
-			notificationEl.style.marginTop = "3vw";
+			notificationEl.style.marginTop = "1vw";
 		}, 0);
 }
 
 function inputFieldsOnblur () {
 	setTimeout(() => {
-			appNameEl.style.marginTop = "5vw";
-			notificationEl.style.marginTop = "18vw";
+			appNameEl.style.marginTop = "4vw";
+			notificationEl.style.marginTop = "16vw";
 		}, 0);
 }
 
