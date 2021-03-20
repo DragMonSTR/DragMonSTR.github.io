@@ -1,3 +1,5 @@
+getElByClassName("column-5").style.height = (innerHeight - 10) + "px";
+
 const appNameEl = getElByClassName("app-name");
 
 const notificationEl = getElByClassName("notification");
