@@ -10,7 +10,7 @@
 	flex-direction: column;
 
 	margin-top: 7vw;
-	margin-bottom: 15vw;
+	margin-bottom: 12vw;
 
 	transition: margin-top .1s ease;
 }
@@ -162,9 +162,8 @@
 	display: none;
 
 	text-align: center;
-
 	letter-spacing: .1em;
-	word-spacing: 0.1em;
+	word-spacing: .1em;
 
 	color: #444;
 }

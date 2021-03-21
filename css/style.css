@@ -33,6 +33,82 @@ body {
 
 
 
+.decrypted-message-block {
+	position: absolute;
+	z-index: 1;
+	left: 100vw;
+
+	width: 100vw;
+	height: 100vh;
+	padding: 0 8vw;
+
+	transition: left .3s ease;
+
+	color: #fff;
+	background-color: #51345c;
+}
+
+.decrypted-message-name {
+	font-size: 7vw;
+	font-weight: 600;
+	line-height: 1.5em;
+
+	margin: 7vw 0 2vw 0;
+
+	text-align: center;
+	letter-spacing: .1em;
+}
+
+.decrypted-message {
+	font-size: 5vw;
+	line-height: 1.7em;
+
+	overflow-y: auto;
+
+	height: 72vw;
+	margin: 0 0 12vw 0;
+
+	letter-spacing: .1em;
+	word-spacing: .2em;
+	word-break: break-word;
+}
+
+.decrypted-message-btns-block {
+	display: flex;
+
+	justify-content: space-between;
+}
+
+.decrypted-message-btn {
+	font-size: 5vw;
+	font-weight: 600;
+	line-height: 2.2em;
+
+	width: 40vw;
+
+	border: .5vw solid #fff;
+	border-radius: 3vw;
+
+	-webkit-tap-highlight-color: transparent;
+}
+
+.main-btn {
+	color: #333;
+	background: #fff;
+}
+.main-btn:active {
+	background-color: #e8d8ee;
+}
+
+.additional-btn {
+	color: #fff;
+}
+.additional-btn:active {
+	background-color: #896496;
+}
+
+
+
 
 .notification-block {
 	position: absolute;

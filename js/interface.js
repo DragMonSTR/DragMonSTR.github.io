@@ -15,6 +15,12 @@ const showGuideBtnEl = getElByClassName("show-guide-btn");
 
 const encryptedStatusMessageEl = getElByClassName("encrypted-status-message");
 
+const decryptedMessageBlockEl = getElByClassName("decrypted-message-block");
+const decryptedMessageEl = getElByClassName("decrypted-message");
+
+const decryptedMessageBlockBackBtnEl = decryptedMessageBlockEl.getElementsByClassName("main-btn")[0];
+const decryptedMessageBlockCopyBtnEl = decryptedMessageBlockEl.getElementsByClassName("additional-btn")[0];
+
 function getElByClassName (className, i = 0) {
 	return document.getElementsByClassName(className)[i];
 }
@@ -39,6 +45,22 @@ function inputFieldsOnblur () {
 	setTimeout(() => {
 			cardEl.style.marginTop = "7vw";
 		}, 0);
+}
+
+
+// light and dark action btns
+keyInputEl.addEventListener("input", inputFieldsOninput, false);
+messInputEl.addEventListener("input", inputFieldsOninput, false);
+
+function inputFieldsOninput () {
+	if (keyInputEl.value.length && messInputEl.value.length) {
+		encryptActionBtnEl.classList.remove("action-btn-unavailable");
+		decryptActionBtnEl.classList.remove("action-btn-unavailable");
+	}
+	else {
+		encryptActionBtnEl.classList.add("action-btn-unavailable");
+		decryptActionBtnEl.classList.add("action-btn-unavailable");
+	}
 }
 
 
@@ -93,6 +115,26 @@ function tryDecrypt () {
 	if (!checkFieldsValidity(true)) return;
 
 	const resultContent = decrypt(messInputEl.value, keyInputEl.value);
+
+	decryptedMessageBlockEl.style.display = "block";
+	setTimeout(() => decryptedMessageBlockEl.style.left = "0vw", 0);
+	decryptedMessageEl.innerHTML = resultContent;
+}
+
+
+// decrypted block back btn processing
+decryptedMessageBlockBackBtnEl.addEventListener("click", decryptedMessageBlockBackBtnElOnclick, false);
+decryptedMessageBlockCopyBtnEl.addEventListener("click", decryptedMessageBlockCopyBtnElOnclick, false);
+
+function decryptedMessageBlockBackBtnElOnclick () {
+	decryptedMessageBlockEl.style.left = "100vw";
+	setTimeout(() => decryptedMessageBlockEl.style.display = "none", 300);
+}
+
+function decryptedMessageBlockCopyBtnElOnclick () {
+	let decryptedMess = decryptedMessageEl.innerHTML;
+	console.log(decryptedMess);
+	copy(decryptedMess);
 }
 
 
