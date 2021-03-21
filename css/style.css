@@ -45,7 +45,7 @@ body {
 	transition: left .2s ease;
 
 	color: #fff;
-	background-color: #51345c;
+	background-color: #52415d;
 }
 
 .decrypted-message-name {
@@ -83,10 +83,12 @@ body {
 	font-size: 5vw;
 	font-weight: 600;
 	line-height: 14vw;
+	letter-spacing: .07em;
 
 	width: 40vw;
+	height: 15vw;
 
-	border: .5vw solid #fff;
+	border: .5vw solid #fdfdfd;
 	border-radius: 4vw;
 
 	-webkit-tap-highlight-color: transparent;
@@ -94,14 +96,14 @@ body {
 
 .main-btn {
 	color: #333;
-	background: #fff;
+	background: #fdfdfd;
 }
 .main-btn:active {
 	background-color: #e8d8ee;
 }
 
 .additional-btn {
-	color: #fff;
+	color: #fdfdfd;
 }
 .additional-btn:active {
 	background-color: #896496;
