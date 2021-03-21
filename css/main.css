@@ -139,10 +139,10 @@
 }
 
 .action-btn:first-child {
-	background-image: url('../img/encrypt.png');
+	background-image: url('../img/encrypt.svg');
 }
 .action-btn:last-child {
-	background-image: url('../img/decrypt.png');
+	background-image: url('../img/decrypt.svg');
 }
 
 .action-btn-unavailable {
