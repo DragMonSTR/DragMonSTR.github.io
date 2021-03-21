@@ -125,9 +125,9 @@
 	background-color .3s ease;
 
 	opacity: 1;
-	border: 1vw solid #586993;
+	border: 1vw solid #909dbd;
 	border-radius: 4vw;
-	background-color: #8291b5;
+	background-color: #a3b0cf;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: auto 80%;
@@ -146,8 +146,8 @@
 }
 
 .action-btn-unavailable {
-	border-color: #909dbd;
-	background-color: #a3b0cf;
+	border-color: #a0acca;
+	background-color: #b9c3dc;
 }
 .action-btn-unavailable:active {
 	border-color: #aa4f4f;
