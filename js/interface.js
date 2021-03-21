@@ -136,7 +136,6 @@ function decryptedMessageBlockBackBtnElOnclick () {
 
 function decryptedMessageBlockCopyBtnElOnclick () {
 	let decryptedMess = decryptedMessageEl.innerHTML;
-	console.log(decryptedMess);
 	copy(decryptedMess);
 }
 
@@ -162,7 +161,7 @@ function checkFieldsValidity (changeDom = false) {
 
 function showNotification (notificationType, notificationText) {
 	if (notificationType == "warning")
-		notificationBlockEl.style.backgroundColor = "#994161";
+		notificationBlockEl.style.backgroundColor = "#d4515f";
 	else if (notificationType == "success")
 		notificationBlockEl.style.backgroundColor = "#a3c69a";
 
