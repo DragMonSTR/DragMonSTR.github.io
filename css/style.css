@@ -82,12 +82,12 @@ body {
 .decrypted-message-btn {
 	font-size: 5vw;
 	font-weight: 600;
-	line-height: 2.2em;
+	line-height: 14vw;
 
 	width: 40vw;
 
 	border: .5vw solid #fff;
-	border-radius: 3vw;
+	border-radius: 4vw;
 
 	-webkit-tap-highlight-color: transparent;
 }
