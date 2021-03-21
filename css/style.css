@@ -42,7 +42,7 @@ body {
 	height: 100vh;
 	padding: 0 8vw;
 
-	transition: left .3s ease;
+	transition: left .2s ease;
 
 	color: #fff;
 	background-color: #51345c;
@@ -115,7 +115,6 @@ body {
 	bottom: -20vw;
 
 	display: none;
-	display: flex;
 
 	width: 100vw;
 	height: 20vw;

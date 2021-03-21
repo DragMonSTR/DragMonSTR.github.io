@@ -53,6 +53,9 @@ keyInputEl.addEventListener("input", inputFieldsOninput, false);
 messInputEl.addEventListener("input", inputFieldsOninput, false);
 
 function inputFieldsOninput () {
+	showGuideBtnEl.style.display = "block";
+	encryptedStatusMessageEl.style.display = "none";
+
 	if (keyInputEl.value.length && messInputEl.value.length) {
 		encryptActionBtnEl.classList.remove("action-btn-unavailable");
 		decryptActionBtnEl.classList.remove("action-btn-unavailable");
