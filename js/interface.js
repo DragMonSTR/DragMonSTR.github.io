@@ -21,10 +21,6 @@ const decryptedMessageEl = getElByClassName("decrypted-message");
 const decryptedMessageBlockBackBtnEl = decryptedMessageBlockEl.getElementsByClassName("main-btn")[0];
 const decryptedMessageBlockCopyBtnEl = decryptedMessageBlockEl.getElementsByClassName("additional-btn")[0];
 
-function getElByClassName (className, i = 0) {
-	return document.getElementsByClassName(className)[i];
-}
-
 let notificationType = "tip";
 
 
