@@ -3,6 +3,11 @@
 
 	width: 100vw;
 	height: 100vh;
+
+	transition: margin-top .2s ease,
+	background-color .4s ease;
+
+	background-color: #4f85c6;
 }
 
 
@@ -55,6 +60,7 @@
 	color: #fff;
 }
 
+/*
 .guide-slider-item:nth-child(1) {
 	background-color: #4f85c6;
 }
@@ -67,6 +73,7 @@
 .guide-slider-item:nth-child(4) {
 	background-color: #e6cc68;
 }
+*/
 
 
 .quide-btns-block {
@@ -74,8 +81,9 @@
 
 	display: flex;
 
-	width: 84vw;
-	margin: 118vw 0 0 0;
+	width: 100vw;
+	margin: 123vw 0 0 0;
+	padding: 0 8vw;
 
 	justify-content: space-between;
 }
@@ -131,11 +139,12 @@
 }
 
 .guide-slider-slogan {
-	text-align: center;
 	font-size: 9vw;
 	font-weight: 600;
+
 	margin: 30vw 0 0 0;
 
+	text-align: center;
 	letter-spacing: .1em;
 
 	color: #333;
