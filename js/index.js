@@ -1,7 +1,9 @@
 const unicodeSize = 65536;
 
-function encrypt (original, key) {
+function encrypt (original, key, doKeyTransforming = true) {
 	let encrypted = "";
+
+	if (doKeyTransforming) key = transformKey(key);
 
 	for (let i in original) {
 		const originalSymbolCode = original.charCodeAt(i);
@@ -16,8 +18,10 @@ function encrypt (original, key) {
 	return encrypted;
 }
 
-function decrypt (encrypted, key) {
+function decrypt (encrypted, key, doKeyTransforming = true) {
 	let original = '';
+
+	if (doKeyTransforming) key = transformKey(key);
 
 	for (let i in encrypted) {
 		const encryptedSymbolCode = encrypted.charCodeAt(i);
@@ -30,4 +34,14 @@ function decrypt (encrypted, key) {
 	}
 
 	return original;
+}
+
+function transformKey (key) {
+	let newKey = key;
+
+	for (let i = 1; i < key.length; i++) {
+		newKey = encrypt(newKey, key[i], false);
+	}
+
+	return newKey;
 }
