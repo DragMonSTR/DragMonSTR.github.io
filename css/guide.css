@@ -1,0 +1,101 @@
+.guide-block {
+	position: fixed;
+
+	width: 100vw;
+	height: 100vh;
+}
+
+
+
+.guide-step-block {
+	position: absolute;
+
+	display: flex;
+
+	width: 100vw;
+	margin: 112vw 0 0 0;
+	padding: 0 35vw;
+
+	justify-content: space-between;
+	align-items: center;
+}
+
+.guide-step-indicator {
+	width: 2.5vw;
+	height: 2.5vw;
+
+	transition: width .2s ease,
+	height .2s ease;
+
+	border-radius: 5vw;
+	background-color: #fff;
+}
+
+.guide-step-indicator-active {
+	width: 4vw;
+	height: 4vw;
+}
+
+
+
+.guide-slider {
+	display: flex;
+}
+
+.guide-slider-item {
+	width: 100vw;
+	height: 100vh;
+	padding: 6vw 0 0 0;
+
+	color: #fff;
+}
+
+.guide-slider-item:nth-child(1) {
+	background-color: #4f85c6;
+}
+
+
+.quide-btns-block {
+	position: absolute;
+
+	display: flex;
+
+	width: 100vw;
+	margin: 118vw 0 0 0;
+	padding: 0 8vw;
+
+	justify-content: space-between;
+}
+
+.guide-btn {
+	font-size: 5.5vw;
+	line-height: 12vw;
+
+	letter-spacing: 0.05em;
+
+	width: 40vw;
+
+	border-radius: 4vw;
+	font-weight: 600;
+}
+
+.guide-additional-btn {
+	color: #fefefe;
+}
+
+.guide-main-btn {
+	color: #333;
+	background-color: #fefefe;
+}
+
+
+.guide-slider-item-name {
+	font-size: 7vw;
+	font-weight: 600;
+	line-height: 1.3em;
+
+	margin: 0 0 7vw 0;
+
+	text-align: center;
+	letter-spacing: .05em;
+}
