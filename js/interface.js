@@ -118,6 +118,9 @@ function tryDecrypt () {
 
 	const resultContent = decrypt(messInputEl.value, keyInputEl.value);
 
+	//showGuideBtnBlockEl.style.display = "flex";
+	//encryptedStatusMessageEl.style.display = "none";
+
 	resultBlockEl.style.display = "block";
 	setTimeout(() => resultBlockEl.style.left = "0vw", 0);
 	decryptedMessageEl.innerHTML = resultContent;
