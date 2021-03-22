@@ -45,7 +45,7 @@
 .guide-slider-item {
 	width: 100vw;
 	height: 100vh;
-	padding: 6vw 0 0 0;
+	padding: 6vw 8vw 0 8vw;
 
 	color: #fff;
 }
@@ -60,23 +60,22 @@
 
 	display: flex;
 
-	width: 100vw;
+	width: 84vw;
 	margin: 118vw 0 0 0;
-	padding: 0 8vw;
 
 	justify-content: space-between;
 }
 
 .guide-btn {
 	font-size: 5.5vw;
-	line-height: 12vw;
-
-	letter-spacing: 0.05em;
+	font-weight: 600;
+	line-height: 13vw;
 
 	width: 40vw;
 
+	letter-spacing: .05em;
+
 	border-radius: 4vw;
-	font-weight: 600;
 }
 
 .guide-additional-btn {
@@ -98,4 +97,21 @@
 
 	text-align: center;
 	letter-spacing: .05em;
+}
+
+.guide-slider-item-p {
+	font-size: 6vw;
+	line-height: 1.25em;
+
+	margin: 0 0 5vw 0;
+
+	letter-spacing: .05em;
+
+	color: #efefef;
+}
+
+.quide-bold {
+	font-weight: 600;
+
+	color: #fff;
 }
