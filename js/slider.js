@@ -28,6 +28,25 @@ function slide (buttonType) {
 	// if need to close
 	if (action === "close guide") {
 		guideBlockEl.style.marginTop = "-100vh";
+		setTimeout(() => guideBlockEl.style.display = "none", 300);
+		getElByClassName("main-block").style.display = "block";
+
+		// set settings to default
+		sliderStep = 0;
+		additionalBtnAction = "close guide";
+		mainBtnAction = "next";
+
+		setTimeout(() => {
+			additionalBtnEl.innerHTML = "Пропустить";
+			mainBtnEl.innerHTML = "Далее";
+			sliderEl.style.marginLeft = "0";
+			guideBlockEl.style.backgroundColor = "#4f85c6";
+
+			getElByClassName("guide-step-indicator-active").classList.remove(
+				"guide-step-indicator-active");
+			getElByClassName("guide-step-indicator", sliderStep).classList.add(
+				"guide-step-indicator-active");
+		}, 300);
 		return;
 	}
 
@@ -69,6 +88,6 @@ function slide (buttonType) {
 
 		additionalBtnEl.innerHTML = "Назад";
 		mainBtnEl.innerHTML = "Приступить";
-		guideBlockEl.style.backgroundColor = "#e6cc68";
+		guideBlockEl.style.backgroundColor = "#4f85c6";
 	}
 }

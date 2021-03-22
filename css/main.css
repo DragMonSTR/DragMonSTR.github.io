@@ -1,4 +1,4 @@
-.main {
+.main-block {
 	position: absolute;
 
 	padding: 0 8vw;
@@ -152,6 +152,22 @@
 .action-btn-unavailable:active {
 	border-color: #aa4f4f;
 	background-color: #d4515f;
+}
+
+
+.show-guide-btn-block {
+	display: flex;
+	justify-content: center;
+}
+
+.show-guide-btn {
+	font-size: 7vw;
+
+	text-align: center;
+	letter-spacing: .05em;
+
+	color: #333;
+	border-bottom: .5vw solid #333;
 }
 
 

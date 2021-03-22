@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/guide.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/result.css">
 
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,117 +21,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 	<body>
-		<div class="guide-block">
-			<div class="guide-step-block">
-				<div class="guide-step-indicator guide-step-indicator-active"></div>
-				<div class="guide-step-indicator"></div>
-				<div class="guide-step-indicator"></div>
-				<div class="guide-step-indicator"></div>
-			</div>
+		<button class="clear-btn" style="display: none">очистить</button>
 
-			<div class="quide-btns-block">
-				<button class="guide-btn guide-additional-btn">Пропустить</button>
-				<button class="guide-btn guide-main-btn">Далее</button>
-			</div>
-
-			<div class="guide-slider">
-				<div class="guide-slider-item">
-					<p class="guide-slider-item-name">обро пожаловать в ШИФРАТОР!</p>
-					<p class="guide-slider-item-p">
-						Что он 
-						<span class="quide-bold">умеет?</span>
-					</p>
-					<p class="guide-slider-item-p">
-						<span class="quide-bold">Шифровать</span>
-						 сообщения вашим секретным ключом
-					</p>
-					<p class="guide-slider-item-p">
-						Только зная ключ можно 
-						<span class="quide-bold">расшифровать</span>
-						ваше послание
-					</p>
-				</div>
-
-				<div class="guide-slider-item">
-					<p class="guide-slider-item-name">Для ШИФРОВАНИЯ нам нужно:</p>
-					<p class="guide-slider-item-p">
-						1. 
-						<span class="quide-bold">Ключ</span>
-						 - любое секретное слово или фраза, например "абрикос"
-					</p>
-					<p class="guide-slider-item-p">
-						2. 
-						<span class="quide-bold">Сообщение</span>
-						, которое желаете зашифровать
-					</p>
-					<p class="guide-slider-item-p">Вводите данные, и жмите <картинка></p>
-				</div>
-
-				<div class="guide-slider-item">
-					<p class="guide-slider-item-name">Для РАСШИФРОВКИ нам нужо:</p>
-					<p class="guide-slider-item-p">
-						1. 
-						<span class="quide-bold">Ключ</span>
-						, которым было произведено шифрование
-					</p>
-					<p class="guide-slider-item-p">
-						2. Зашифрованное 
-						<span class="quide-bold">Сообщение</span>
-					</p>
-					<p class="guide-slider-item-p">Вводите данные, и жмите <картинка></p>
-				</div>
-
-				<div class="guide-slider-item">
-					<p class="guide-slider-slogan">
-						Удачи!
-						<img class="smile-img" src="img/smile.png" alt="">
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<!--
-		<button class="clear-btn">очистить</button>
-
-		<div class="show-guide-btn-block">
-			<button class="show-guide-btn">Как пользоваться?</button>
-		</div>
-		
-		<div class="gide" style="display: none">
-			<p class="notification-details-paragraph center">
-				Добро пожаловать в шифратор!
-			</p>
-			<p class="notification-details-paragraph center">
-				Для <span class="red">шифрования</span> вам понадобятся:
-			</p>
-			<p class="notification-details-paragraph">
-				1. <span class="yellow">Ключ</span> - любое секретное слово или фраза, например "абрикос"
-			</p>
-			<p class="notification-details-paragraph">
-				2. <span class="yellow">Сообщение</span> - текст, который желаете зашифровать
-			</p>
-			<p class="notification-details-paragraph">
-				Заполните оба поля, и нажмите на <span class="red">красную</span> кнопку. Текст зашифруется и скопируется
-			</p>
-
-			<p class="notification-details-paragraph center">
-				Для <span class="green">расшифровки</span> вам понадобятся:
-			</p>
-			<p class="notification-details-paragraph">
-				1. <span class="yellow">Ключ</span>, которым было произведено шифрование
-			</p>
-			<p class="notification-details-paragraph">
-				2. <span class="yellow">Сообщение</span> - зашифрованный ранее текст
-			</p>
-			<p class="notification-details-paragraph">
-				Заполните оба поля, и нажмите на <span class="green">зеленую</span> кнопку. Текст расшифруется и скопируется
-			</p>
-		</div>
-
-		<div class="notification-block">
+		<div class="notification-block" style="display: none">
 			<p class="notification"></p>
 		</div>
-		<div class="main">
+
+		<div class="main-block" style="display: none">
 			<div class="card">
 				<label class="input-field">
 					<input class="key-input" type="text" required>
@@ -148,10 +45,89 @@
 				</div>
 			</div>
 
+			<div class="show-guide-btn-block">
+				<button class="show-guide-btn">Как пользоваться?</button>
+			</div>
+
 			<p class="encrypted-status-message">Ваше зашифрованное сообщение успешно скопировано</p>
 		</div>
 
-		<div class="decrypted-message-block">
+		<div class="guide-block">
+			<div class="guide-step-block">
+				<div class="guide-step-indicator guide-step-indicator-active"></div>
+				<div class="guide-step-indicator"></div>
+				<div class="guide-step-indicator"></div>
+				<div class="guide-step-indicator"></div>
+			</div>
+
+			<div class="quide-btns-block">
+				<button class="guide-btn guide-additional-btn">Пропустить</button>
+				<button class="guide-btn guide-main-btn">Далее</button>
+			</div>
+
+			<div class="guide-slider">
+				<div class="guide-slider-item">
+					<p class="guide-slider-item-name">Добро пожаловать в ШИФРАТОР!</p>
+					<p class="guide-slider-item-p">
+						Что он
+						<span class="quide-bold">умеет?</span>
+					</p>
+					<p class="guide-slider-item-p">
+						<span class="quide-bold">Шифровать</span>
+						сообщения вашим секретным ключом
+					</p>
+					<p class="guide-slider-item-p">
+						Только зная ключ можно
+						<span class="quide-bold">расшифровать</span>
+						ваше послание
+					</p>
+				</div>
+
+				<div class="guide-slider-item">
+					<p class="guide-slider-item-name">Для ШИФРОВАНИЯ нам нужно:</p>
+					<p class="guide-slider-item-p">
+						1. 
+						<span class="quide-bold">Ключ</span>
+						- любое секретное слово или фраза, например "абрикос"
+					</p>
+					<p class="guide-slider-item-p">
+						2.
+						<span class="quide-bold">Сообщение,</span>
+						которое желаете зашифровать
+					</p>
+					<p class="guide-slider-item-p">
+						Введите данные, и<br>жмите
+						<img src="img/encrypt.svg" alt="" class="icon-example">
+					</p>
+				</div>
+
+				<div class="guide-slider-item">
+					<p class="guide-slider-item-name">Для РАСШИФРОВКИ нам нужо:</p>
+					<p class="guide-slider-item-p">
+						1. 
+						<span class="quide-bold">Ключ,</span>
+						которым было произведено шифрование
+					</p>
+					<p class="guide-slider-item-p">
+						2. Зашифрованное
+						<span class="quide-bold">Сообщение</span>
+					</p>
+					<p class="guide-slider-item-p">
+						Введите данные, и<br>жмите
+						<img src="img/decrypt.svg" alt="" class="icon-example">
+					</p>
+				</div>
+
+				<div class="guide-slider-item">
+					<p class="guide-slider-slogan">
+						Удачи!
+						<img class="smile-img" src="img/smile.png" alt="">
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="result-block" style="display: none">
 			<p class="decrypted-message-name">Расшифрованное сообщение</p>
 			<p class="decrypted-message"></p>
 			<div class="decrypted-message-btns-block">
@@ -159,7 +135,6 @@
 				<button class="decrypted-message-btn additional-btn">Копировать</button>
 			</div>
 		</div>
-	-->
 	</body>
 
 	<script src="js/slider.js"></script>

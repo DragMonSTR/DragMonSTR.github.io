@@ -1,3 +1,5 @@
+const mainBlockEl = getElByClassName("main-block");
+
 const cardEl = getElByClassName("card");
 
 const keyInputEl = getElByClassName("key-input");
@@ -11,15 +13,16 @@ const clearBtnEl = getElByClassName("clear-btn");
 const notificationBlockEl = getElByClassName("notification-block");
 const notificationEl = getElByClassName("notification");
 
+const showGuideBtnBlockEl = getElByClassName("show-guide-btn-block");
 const showGuideBtnEl = getElByClassName("show-guide-btn");
 
 const encryptedStatusMessageEl = getElByClassName("encrypted-status-message");
 
-const decryptedMessageBlockEl = getElByClassName("decrypted-message-block");
+const resultBlockEl = getElByClassName("result-block");
 const decryptedMessageEl = getElByClassName("decrypted-message");
 
-const decryptedMessageBlockBackBtnEl = decryptedMessageBlockEl.getElementsByClassName("main-btn")[0];
-const decryptedMessageBlockCopyBtnEl = decryptedMessageBlockEl.getElementsByClassName("additional-btn")[0];
+const decryptedMessageBlockBackBtnEl = resultBlockEl.getElementsByClassName("main-btn")[0];
+const decryptedMessageBlockCopyBtnEl = resultBlockEl.getElementsByClassName("additional-btn")[0];
 
 let notificationType = "tip";
 
@@ -49,7 +52,7 @@ keyInputEl.addEventListener("input", inputFieldsOninput, false);
 messInputEl.addEventListener("input", inputFieldsOninput, false);
 
 function inputFieldsOninput () {
-	showGuideBtnEl.style.display = "block";
+	showGuideBtnBlockEl.style.display = "flex";
 	encryptedStatusMessageEl.style.display = "none";
 
 	if (keyInputEl.value.length && messInputEl.value.length) {
@@ -104,7 +107,7 @@ function tryEncrypt () {
 	
 	copy(resultContent);
 
-	showGuideBtnEl.style.display = "none";
+	showGuideBtnBlockEl.style.display = "none";
 	encryptedStatusMessageEl.style.display = "block";
 
 	showNotification("success", "скопировано");
@@ -115,9 +118,10 @@ function tryDecrypt () {
 
 	const resultContent = decrypt(messInputEl.value, keyInputEl.value);
 
-	decryptedMessageBlockEl.style.display = "block";
-	setTimeout(() => decryptedMessageBlockEl.style.left = "0vw", 0);
+	resultBlockEl.style.display = "block";
+	setTimeout(() => resultBlockEl.style.left = "0vw", 0);
 	decryptedMessageEl.innerHTML = resultContent;
+	setTimeout(() => mainBlockEl.style.display = "none", 200);
 }
 
 
@@ -126,13 +130,24 @@ decryptedMessageBlockBackBtnEl.addEventListener("click", decryptedMessageBlockBa
 decryptedMessageBlockCopyBtnEl.addEventListener("click", decryptedMessageBlockCopyBtnElOnclick, false);
 
 function decryptedMessageBlockBackBtnElOnclick () {
-	decryptedMessageBlockEl.style.left = "100vw";
-	setTimeout(() => decryptedMessageBlockEl.style.display = "none", 300);
+	mainBlockEl.style.display = "block";
+	resultBlockEl.style.left = "100vw";
+	setTimeout(() => resultBlockEl.style.display = "none", 300);
 }
 
 function decryptedMessageBlockCopyBtnElOnclick () {
 	let decryptedMess = decryptedMessageEl.innerHTML;
 	copy(decryptedMess);
+}
+
+
+// show guide btn processing
+showGuideBtnEl.addEventListener("click", showGuideBtnElOnclick, false);
+
+function showGuideBtnElOnclick () {
+	guideBlockEl.style.display = "block";
+	setTimeout(() => guideBlockEl.style.marginTop = "0", 0);
+	setTimeout(() => mainBlockEl.style.display = "none", 300);
 }
 
 
