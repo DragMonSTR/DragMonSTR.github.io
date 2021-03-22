@@ -37,11 +37,12 @@ function decrypt (encrypted, key, doKeyTransforming = true) {
 }
 
 function transformKey (key) {
+	key = encrypt(key, "퉺ⰾ閏袵⒑柛沪掾", false);
+
 	let newKey = key;
 
-	for (let i = 1; i < key.length; i++) {
+	for (let i = 1; i < key.length; i++)
 		newKey = encrypt(newKey, key[i], false);
-	}
 
 	return newKey;
 }
