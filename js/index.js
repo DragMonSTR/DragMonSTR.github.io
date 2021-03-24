@@ -1,27 +1,4 @@
 const unicodeSize = 1114112;
-// 65536
-// 1114112
-
-/*
-function encrypt (original, key, doKeyTransforming = true) {
-	let encrypted = "";
-
-	//if (doKeyTransforming) key = transformKey(key);
-
-	for (let i in original) {
-		const originalSymbolCode = original.charCodeAt(i);
-		const keySymbolCode = key.charCodeAt(i % key.length);
-
-		let ecryptedSymbolCode = originalSymbolCode + keySymbolCode;
-		if (ecryptedSymbolCode >= unicodeSize) ecryptedSymbolCode -= unicodeSize;
-
-		encrypted += String.fromCharCode(ecryptedSymbolCode);
-	}
-
-	console.log(encrypted);
-	return encrypted;
-}
-*/
 
 function encrypt (original, key, doKeyTransforming = true) {
 	let encrypted = "";
@@ -30,30 +7,22 @@ function encrypt (original, key, doKeyTransforming = true) {
 
 	let keyIndex = 0;
 	for (let i = 0; i < original.length; i++) {
-		if (i > 0 && original.codePointAt(i - 1) != original.charCodeAt(i - 1)) continue;
+		if (i > 0 && original.codePointAt(i - 1) !== original.charCodeAt(i - 1)) continue;
 
 		let originalSymbolCode = original.codePointAt(i);
 
 		const keySymbolCode = key.codePointAt(keyIndex);
 		keyIndex++;
-		if (keyIndex == key.length) keyIndex = 0;
+		if (keyIndex === key.length) keyIndex = 0;
 
 		let encryptedSymbolCode = originalSymbolCode + keySymbolCode;
 		if (encryptedSymbolCode >= unicodeSize) encryptedSymbolCode -= unicodeSize;
-		
-		//console.log(i)
-		//console.log("original codePoint ", originalSymbolCode)
-		//console.log("key codePoint      ", keySymbolCode)
-		//console.log("encrypted charCode ", String.fromCodePoint(encryptedSymbolCode).charCodeAt(0))
-		//console.log("encrypted codePoint", encryptedSymbolCode);
-		//console.log("----------------------------")
 
 		encrypted += String.fromCodePoint(encryptedSymbolCode);
 	}
 
 	return encrypted;
 }
-
 
 function decrypt (encrypted, key, doKeyTransforming = true) {
 	let original = '';
@@ -62,35 +31,17 @@ function decrypt (encrypted, key, doKeyTransforming = true) {
 
 	let keyIndex = 0;
 	for (let i = 0; i < encrypted.length; i++) {
-
-		if (i > 0 && encrypted.codePointAt(i - 1) != encrypted.charCodeAt(i - 1)) {
-			//console.log("skipped", i);
-			//console.log("encrypted charCode ", encrypted.charCodeAt(i - 1))
-			//console.log("encrypted codePoint", encrypted.codePointAt(i - 1))
-			//console.log("----------------------------")
-			continue;
-		}
-
+		if (i > 0 && encrypted.codePointAt(i - 1) !== encrypted.charCodeAt(i - 1)) continue;
 
 		const encryptedSymbolCode = encrypted.codePointAt(i);
 		const keySymbolCode = key.codePointAt(keyIndex);
 		keyIndex++;
-		if (keyIndex == key.length) keyIndex = 0;
+		if (keyIndex === key.length) keyIndex = 0;
 
 		let originalSymbolCode = encryptedSymbolCode - keySymbolCode;
 		if (originalSymbolCode < 0) originalSymbolCode += unicodeSize;
 
-		//console.log(i)
-		//console.log("encrypted charCode ", encrypted.charCodeAt(i));
-		//console.log("encrypted codePoint", encryptedSymbolCode);
-		//console.log("key codePoint      ", keySymbolCode)
-		//console.log("original codePoint ", originalSymbolCode)
-		//console.log("----------------------------")
-
-
-		let symbol = String.fromCodePoint(originalSymbolCode);
-
-		original += symbol;
+		original += String.fromCodePoint(originalSymbolCode);
 	}
 
 	return original;
