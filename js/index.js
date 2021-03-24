@@ -11,6 +11,8 @@ function encrypt (original, key, doKeyTransforming = true) {
 
 		let originalSymbolCode = original.codePointAt(i);
 
+		if (keyIndex > 0 && key.codePointAt(keyIndex - 1) !== key.charCodeAt(keyIndex - 1)) keyIndex++;
+		if (keyIndex === key.length) keyIndex = 0;
 		const keySymbolCode = key.codePointAt(keyIndex);
 		keyIndex++;
 		if (keyIndex === key.length) keyIndex = 0;
@@ -34,6 +36,9 @@ function decrypt (encrypted, key, doKeyTransforming = true) {
 		if (i > 0 && encrypted.codePointAt(i - 1) !== encrypted.charCodeAt(i - 1)) continue;
 
 		const encryptedSymbolCode = encrypted.codePointAt(i);
+
+		if (keyIndex > 0 && key.codePointAt(keyIndex - 1) !== key.charCodeAt(keyIndex - 1)) keyIndex++;
+		if (keyIndex === key.length) keyIndex = 0;
 		const keySymbolCode = key.codePointAt(keyIndex);
 		keyIndex++;
 		if (keyIndex === key.length) keyIndex = 0;
