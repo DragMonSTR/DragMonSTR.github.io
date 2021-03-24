@@ -53,7 +53,7 @@ function decrypt (encrypted, key, doKeyTransforming = true) {
 }
 
 function transformKey (key) {
-	key = encrypt(key, "%X5bL6r4#z", false);
+	key = encrypt(key, "𳫼󾤧􇁝񫧰󹯎񉽴󲅍ꗙ􊃊񃑶𧁦򾊠򀮖𪱯􋿪򂖸򅊞񵒌󁫯窋񄫱񳳊􏟑󫿘򊐂񕭾􄊱򮪖𕘵񥀀󤶛򩂃𳵗𙙴󥬷򵀐𘠒뤊򤈹㶎𵘠󔭧昹򙨕󹖥񄃾󣚮򸀐𙞍𻑹", false);
 
 	let newKey = key;
 
