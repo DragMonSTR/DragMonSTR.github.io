@@ -8,6 +8,29 @@ body {
 }
 
 
+.log {
+	position: fixed;
+	z-index: 10;
+
+	width: 80vw;
+	margin: 20vw 10vw;
+	padding: 5vw;
+
+	border-radius: 4vw;
+	background: black;
+}
+
+.log-text {
+	font-size: 4vw;
+	line-height: 2em;
+
+	letter-spacing: .2em;
+
+	color: white;
+}
+
+
+
 .notification-block {
 	position: absolute;
 	bottom: -20vw;

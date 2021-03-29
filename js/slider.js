@@ -12,6 +12,28 @@ function getElByClassName (className, i = 0) {
 }
 
 
+
+
+
+let logTextEls = document.getElementsByClassName("log-text");
+
+logTextEls[0].innerHTML = "innerWidth: " + innerWidth;
+logTextEls[1].innerHTML = "innerHeight: " + innerHeight;
+logTextEls[2].innerHTML = "screen.width: " + screen.width;
+logTextEls[3].innerHTML = "screen.height: " + screen.height;
+logTextEls[4].innerHTML = "screen.availWidth: " + screen.availWidth;
+logTextEls[5].innerHTML = "screen.availHeight: " + screen.availHeight;
+
+
+
+
+
+
+
+
+
+
+
 let sliderStep = 0;
 let additionalBtnAction = "close guide";
 let mainBtnAction = "next";
