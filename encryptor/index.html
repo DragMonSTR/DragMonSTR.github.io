@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="description" content="Шифрование текста онлайн">
+	<meta name="keywords" content="шифрование, ключ, сообщение, алгоритм шифрования">
+	<meta name="author" content="Владислав Олексенко">
+	
+	<title>Шифратор</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/guide.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/result.css">
+
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+	<body>
+		<!--
+		<div class="log">
+			<p class="log-text">1</p>
+			<p class="log-text">2</p>
+			<p class="log-text">3</p>
+			<p class="log-text">4</p>
+			<p class="log-text">5</p>
+			<p class="log-text">6</p>
+		</div>
+		-->
+
+		<button class="clear-btn" style="display: none">очистить</button>
+
+		<div class="notification-block" style="display: none">
+			<p class="notification"></p>
+		</div>
+
+		<div class="main-block" style="display: none">
+			<div class="card">
+				<label class="input-field">
+					<input class="key-input" type="text" required>
+					<span class="placeholder">Ключ</span>
+				</label>
+
+				<label class="input-field">
+					<textarea class="mess-input" cols="30" rows="10" required></textarea>
+					<span class="placeholder">Сообщение</span>
+				</label>
+
+				<div class="action-btn-block">
+					<button class="action-btn action-btn-unavailable"></button>
+					<button class="action-btn action-btn-unavailable"></button>
+				</div>
+			</div>
+
+			<div class="show-guide-btn-block">
+				<button class="show-guide-btn">Как пользоваться?</button>
+			</div>
+
+			<p class="encrypted-status-message">Ваше зашифрованное сообщение успешно скопировано</p>
+		</div>
+
+		<div class="guide-block">
+			<div class="guide-step-block">
+				<div class="guide-step-indicator guide-step-indicator-active"></div>
+				<div class="guide-step-indicator"></div>
+				<div class="guide-step-indicator"></div>
+				<div class="guide-step-indicator"></div>
+			</div>
+
+			<div class="guide-btns-block">
+				<button class="guide-btn guide-additional-btn">Пропустить</button>
+				<button class="guide-btn guide-main-btn">Далее</button>
+			</div>
+
+			<div class="guide-slider">
+				<div class="guide-slider-item">
+					<p class="guide-slider-item-name">Добро пожаловать в ШИФРАТОР!</p>
+					<p class="guide-slider-item-p">
+						Что он
+						<span class="quide-bold">умеет?</span>
+					</p>
+					<p class="guide-slider-item-p">
+						<span class="quide-bold">Шифровать</span>
+						сообщения вашим секретным ключом
+					</p>
+					<p class="guide-slider-item-p">
+						Только зная ключ можно
+						<span class="quide-bold">расшифровать</span>
+						ваше послание
+					</p>
+				</div>
+
+				<div class="guide-slider-item">
+					<p class="guide-slider-item-name">Для ШИФРОВАНИЯ нам нужно:</p>
+					<p class="guide-slider-item-p">
+						1. 
+						<span class="quide-bold">Ключ</span>
+						- любое секретное слово или фраза, например "абрикос"
+					</p>
+					<p class="guide-slider-item-p">
+						2.
+						<span class="quide-bold">Сообщение,</span>
+						которое желаете зашифровать
+					</p>
+					<p class="guide-slider-item-p">
+						Введите данные, и<br>жмите
+						<img src="img/encrypt.svg" alt="" class="icon-example">
+					</p>
+				</div>
+
+				<div class="guide-slider-item">
+					<p class="guide-slider-item-name">Для РАСШИФРОВКИ нам нужо:</p>
+					<p class="guide-slider-item-p">
+						1. 
+						<span class="quide-bold">Ключ,</span>
+						которым было произведено шифрование
+					</p>
+					<p class="guide-slider-item-p">
+						2. Зашифрованное
+						<span class="quide-bold">Сообщение</span>
+					</p>
+					<p class="guide-slider-item-p">
+						Введите данные, и<br>жмите
+						<img src="img/decrypt.svg" alt="" class="icon-example">
+					</p>
+				</div>
+
+				<div class="guide-slider-item">
+					<p class="guide-slider-slogan">
+						Удачи!
+						<img class="smile-img" src="img/smile.png" alt="">
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="result-block" style="display: none">
+			<p class="decrypted-message-name">Расшифрованное сообщение</p>
+			<p class="decrypted-message"></p>
+			<div class="decrypted-message-btns-block">
+				<button class="decrypted-message-btn main-btn">Назад</button>
+				<button class="decrypted-message-btn additional-btn">Копировать</button>
+			</div>
+		</div>
+	</body>
+
+	<script src="js/adaptive.js"></script>
+	<script src="js/slider.js"></script>
+	<script src="js/interface.js"></script>
+	<script src="js/index.js"></script>
+</html>

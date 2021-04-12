@@ -1,0 +1,80 @@
+body {
+	font-family: 'Balsamiq Sans', cursive;
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+
+	overflow: hidden;
+}
+
+
+.log {
+	position: fixed;
+	z-index: 10;
+
+	width: 80vw;
+	margin: 20vw 10vw;
+	padding: 5vw;
+
+	border-radius: 4vw;
+	background: black;
+}
+
+.log-text {
+	font-size: 4vw;
+	line-height: 2em;
+
+	letter-spacing: .2em;
+
+	color: white;
+}
+
+
+
+.notification-block {
+	position: absolute;
+	bottom: -20vw;
+
+	width: 100vw;
+	height: 20vw;
+
+	transition: bottom .3s ease;
+
+	border-radius: 9vw 9vw 0 0;
+
+	justify-content: center;
+	align-items: center;
+}
+
+.notification {
+	font-size: 7vw;
+	font-weight: 600;
+
+	letter-spacing: .1em;
+	word-spacing: .1em;
+
+	color: #fff;
+}
+
+
+.clear-btn {
+	font-size: 6vw;
+	font-weight: 400;
+
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+
+	display: none;
+
+	width: 100%;
+	padding: 1.8vw 0;
+
+	transition: letter-spacing .2s ease;
+	letter-spacing: .1em;
+
+	color: #333;
+	background-color: #eee;
+
+	-webkit-tap-highlight-color: transparent;
+}
