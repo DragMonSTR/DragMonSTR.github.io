@@ -5,9 +5,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IRON Vlad</title>
 	<link rel="shortcut icon" href="img/icon.svg" type="image/x-icon">
-	<link rel="stylesheet" href="css/style.css">
+	<style>
+		body {
+			background-color: #070707;
+		}
+	</style>
+	<link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+		<link rel="stylesheet" href="css/style.css">
+	</noscript>
 </head>
-<body style="background-color: #070707;">
+<body>
 	<header>
 		<div class="header-content-block">
 			<div class="logo-block">
