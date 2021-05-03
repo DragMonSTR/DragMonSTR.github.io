@@ -67,5 +67,5 @@ window.onload = () => {
 	headEl.appendChild(link2El);
 
 	// photo
-	getElByClass("photo").src = "img/photo.png";
+	getElByClass("photo").src = "img/photo-min.png";
 }
